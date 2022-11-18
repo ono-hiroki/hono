@@ -1,8 +1,12 @@
 import styles from '../styles/Home.module.css'
 import React from "react"
 
-export function Headline(props) {
-    console.log(props)
+type props = {
+    page: string
+    children: React.ReactNode
+}
+
+export function Headline(props: props) {
     return (
         <>
             <h1 className={styles.title}>
@@ -11,7 +15,7 @@ export function Headline(props) {
 
             <p className={styles.description}>
                 Get started by editing{' '}
-                <code className={styles.code}>pages/{props.page}.tsx</code>
+                {props.children}
             </p>
         </>
     )
