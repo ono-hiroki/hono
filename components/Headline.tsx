@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css'
 import React from "react"
 
-export default function Headline(props) {
+export function Headline(props) {
     console.log(props)
     return (
         <>
