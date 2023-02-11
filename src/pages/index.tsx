@@ -12,17 +12,23 @@ const Container = styled.div`
 
 export default function Home() {
     const [count, setFoo] = React.useState(1)
-    const handleClick = () => {
-        setFoo(count => count + 1)
-        setFoo(count => count + 1)
+
+    // useCallbackは、再生性されない関数を作成する。
+    const handleClick = useCallback(() => {
+        console.log(count)
+        if (count < 10) {
+            setFoo(count => count + 1)
+        }
+
+        // setFoo(count => count + 1)
+        // setFoo(count => count + 1)
         // setFoo(foo + 1)
         // 関数との違いは、こっちは直接値を渡しているので、
         // この時点で値が決まっているので、useEffectの中で値を参照すると、
         // この時点での値が参照される。
-    };
+    },[count]);
 
-
-
+    // useEffectは、レンダリング後に実行される。
     useEffect(() => {
         console.log('useEffect')
         document.body.style.backgroundColor = 'lightblue'
