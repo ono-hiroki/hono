@@ -2,7 +2,7 @@ import Head from 'next/head'
 import {Footer} from "src/components/Footer"
 import {Main} from "src/components/Main"
 import {Header} from "src/components/Header"
-import React from "react";
+import React, {useCallback} from "react";
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -10,6 +10,13 @@ const Container = styled.div`
 `;
 
 export default function Home() {
+    const foo:number = 1
+    const handleClick = useCallback((e: { preventDefault: () => void; }) => {
+        e.preventDefault()
+        console.log(e)
+        alert(foo)
+    },[]);
+
     return (
         <Container>
             <Head>
@@ -18,6 +25,11 @@ export default function Home() {
                 <link rel="icon" href="/public/favicon.ico" />
             </Head>
             <Header></Header>
+            <a
+                href='/about'
+                onClick={handleClick}
+            >
+                ぼたん</a>
             <Main page='index' />
             <Footer />
         </Container>
