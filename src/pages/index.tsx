@@ -4,6 +4,7 @@ import {Main} from "src/components/Main"
 import {Header} from "src/components/Header"
 import React, {useCallback} from "react";
 import styled from 'styled-components';
+import Link from "next/link";
 
 const Container = styled.div`
     padding: 0 2rem;
@@ -25,11 +26,11 @@ export default function Home() {
                 <link rel="icon" href="/public/favicon.ico" />
             </Head>
             <Header></Header>
-            <a
+            <Link
                 href='/about'
                 onClick={handleClick}
             >
-                ぼたん</a>
+                ぼたん</Link>
             <Main page='index' />
             <Footer />
         </Container>
