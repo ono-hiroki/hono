@@ -12,10 +12,11 @@ const Container = styled.div`
 
 export default function Home() {
     const [count, setFoo] = React.useState(1)
+    const [text, setText] = React.useState('')
+    const [isShow, setIsShow] = React.useState(false)
 
     // useCallbackは、再生性されない関数を作成する。
     const handleClick = useCallback(() => {
-        console.log(count)
         if (count < 10) {
             setFoo(count => count + 1)
         }
@@ -39,6 +40,17 @@ export default function Home() {
         }
     }, [])
 
+    const handleChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.value.length > 10) {
+            return
+        }
+        setText(e.target.value.trim())
+    }
+
+    const handleDisplay = () => {
+        setIsShow(!isShow)
+    }
+
     return (
         <Container>
             <Head>
@@ -47,12 +59,15 @@ export default function Home() {
                 <link rel="icon" href="/public/favicon.ico"/>
             </Head>
             <Header></Header>
-            <h1>{count}</h1>
-            <button
-                onClick={handleClick}
-            >
-                ぼたん
-            </button>
+
+            <button onClick={handleClick}>ぼたん</button>
+            <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
+            <input type="text"
+                   value={text}
+                   onChange={handleChanged}
+            />
+            <div>{text}</div>
+            { isShow ? <h1>{count}</h1> : null }
             <Main page='index'/>
             <Footer/>
         </Container>
