@@ -11,12 +11,17 @@ const Container = styled.div`
 `;
 
 export default function Home() {
-    const foo: number = 1
-    const handleClick = useCallback((e: { preventDefault: () => void; }) => {
-        e.preventDefault()
-        console.log(e)
-        alert(foo)
-    }, []);
+    const [count, setFoo] = React.useState(1)
+    const handleClick = () => {
+        setFoo(count => count + 1)
+        setFoo(count => count + 1)
+        // setFoo(foo + 1)
+        // 関数との違いは、こっちは直接値を渡しているので、
+        // この時点で値が決まっているので、useEffectの中で値を参照すると、
+        // この時点での値が参照される。
+    };
+
+
 
     useEffect(() => {
         console.log('useEffect')
@@ -36,12 +41,12 @@ export default function Home() {
                 <link rel="icon" href="/public/favicon.ico"/>
             </Head>
             <Header></Header>
-            <Link
-                href='/about'
+            <h1>{count}</h1>
+            <button
                 onClick={handleClick}
             >
                 ぼたん
-            </Link>
+            </button>
             <Main page='index'/>
             <Footer/>
         </Container>
