@@ -5,6 +5,7 @@ import {Header} from "src/components/Header"
 import React, {useCallback, useEffect} from "react";
 import styled from 'styled-components';
 import Link from "next/link";
+import {set} from "immutable";
 
 const Container = styled.div`
     padding: 0 2rem;
@@ -13,7 +14,8 @@ const Container = styled.div`
 export default function Home() {
     const [count, setFoo] = React.useState(1)
     const [text, setText] = React.useState('')
-    const [isShow, setIsShow] = React.useState(false)
+    const [isShow, setIsShow] = React.useState(true)
+    const [array, setArray] = React.useState([])
 
     // useCallbackは、再生性されない関数を作成する。
     const handleClick = useCallback(() => {
@@ -51,6 +53,21 @@ export default function Home() {
         setIsShow(!isShow)
     }
 
+    const handleAdd = useCallback(() => {
+        if (array.some((item) => item === text)) {
+            alert('同じ値があります')
+            return array;
+        }
+
+        // @ts-ignore
+        setArray((array) => [...array, text])
+            // スプレッド構文は、配列を展開する。破壊的な操作ではない。
+            // 破壊的な操作は、push, pop, shift, unshift, splice, sort, reverse
+            // ミュータブルとは、値を変更できること。
+            // イミュータブルとは、値を変更できないこと。　
+
+    }, [text,array])
+
     return (
         <Container>
             <Head>
@@ -62,12 +79,18 @@ export default function Home() {
 
             <button onClick={handleClick}>ぼたん</button>
             <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
+            <button onClick={handleAdd}>配列追加</button>
             <input type="text"
                    value={text}
                    onChange={handleChanged}
             />
             <div>{text}</div>
             { isShow ? <h1>{count}</h1> : null }
+            <ul>
+                {array.map((item, index) => {
+                    return <li key={index}>{item}</li>
+                })}
+            </ul>
             <Main page='index'/>
             <Footer/>
         </Container>
