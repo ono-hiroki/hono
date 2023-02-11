@@ -42,15 +42,15 @@ const FooterImage = styled.img`
 export function Footer() {
     return (
         <>
-        <StyledFooter>
-            <a
-                href="https://github.com/ono-hiroki/hono"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ©2022 Hiroki Ono.
-            </a>
-        </StyledFooter>
+            <StyledFooter>
+                <a
+                    href="https://github.com/ono-hiroki/hono"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ©2022 Hiroki Ono.
+                </a>
+            </StyledFooter>
         </>
     )
 }
