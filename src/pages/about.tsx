@@ -3,14 +3,9 @@ import styles from 'src/styles/Home.module.css'
 import {Footer} from "src/components/Footer"
 import {Main} from "src/components/Main";
 import {Header} from "src/components/Header";
-import {useCounter} from "src/hooks/useCounter";
-import {useInputArray} from "src/hooks/useInputArray";
-import {useBgLightBlue} from "../hooks/useBgLightBlue";
 
-export default function About() {
-    const {count, isShow, handleClick, handleDisplay} = useCounter()
-    const {text, array, handleChanged, handleAdd} = useInputArray()
-    useBgLightBlue()
+export default function About(props: any) {
+    const {count, isShow, handleClick, handleDisplay, text, array, handleChanged, handleAdd} = props
 
     return (
         <div className={styles.container}>
@@ -21,7 +16,7 @@ export default function About() {
             </Head>
             <Header></Header>
 
-            <button onClick={handleClick}>ぼたん</button>
+            <button onClick={handleClick}>カウントアップ</button>
             <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
             <button onClick={handleAdd}>配列追加</button>
             <input type="text"
@@ -29,9 +24,9 @@ export default function About() {
                    onChange={handleChanged}
             />
             <div>{text}</div>
-            { isShow ? <h1>{count}</h1> : null }
+            {isShow ? <h1>{count}</h1> : null}
             <ul>
-                {array.map((item, index) => {
+                {array.map((item: string | number | null, index: number) => {
                     return <li key={index}>{item}</li>
                 })}
             </ul>

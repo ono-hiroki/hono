@@ -3,18 +3,13 @@ import {Footer} from "src/components/Footer"
 import {Main} from "src/components/Main"
 import {Header} from "src/components/Header"
 import styled from 'styled-components';
-import {useBgLightBlue} from "../hooks/useBgLightBlue";
-import {useCounter} from "src/hooks/useCounter";
-import {useInputArray} from "src/hooks/useInputArray";
 
 const Container = styled.div`
     padding: 0 2rem;
 `;
 
-export default function Home() {
-    const {count, isShow, handleClick, handleDisplay} = useCounter()
-    const {text, array, handleChanged, handleAdd} = useInputArray()
-    useBgLightBlue()
+export default function Index(props: any) {
+    const {count, isShow, handleClick, handleDisplay, text, array, handleChanged, handleAdd} = props
 
     return (
         <Container>
@@ -33,14 +28,13 @@ export default function Home() {
                    value={text}
                    onChange={handleChanged}
             />
-            { isShow ? <h1>{count}</h1> : null }
+            {isShow ? <h1>{count}</h1> : null}
             <div>{text}</div>
             <ul>
-                {array.map((item, index) => {
+                {array.map((item: string | number | null, index: number) => {
                     return <li key={index}>{item}</li>
                 })}
             </ul>
-
 
 
             <Main page='index'/>
