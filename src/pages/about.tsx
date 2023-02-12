@@ -5,7 +5,7 @@ import {Main} from "src/components/Main";
 import {Header} from "src/components/Header";
 
 export default function About(props: any) {
-    const {count, isShow, handleClick, handleDisplay, text, array, handleChanged, handleAdd} = props
+    const {count, doubleCount , isShow, handleClick, handleDisplay, text, array, handleChanged, handleAdd} = props
 
     return (
         <div className={styles.container}>
@@ -25,6 +25,7 @@ export default function About(props: any) {
             />
             <div>{text}</div>
             {isShow ? <h1>{count}</h1> : null}
+            {isShow ? <h1>{doubleCount}</h1> : null}
             <ul>
                 {array.map((item: string | number | null, index: number) => {
                     return <li key={index}>{item}</li>
