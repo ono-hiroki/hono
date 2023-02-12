@@ -4,8 +4,7 @@ import {Footer} from "src/components/Footer"
 import {Main} from "src/components/Main";
 import {Header} from "src/components/Header";
 
-export default function About(props: any) {
-    const {count, doubleCount , isShow, handleClick, handleDisplay, text, array, handleChanged, handleAdd} = props
+const About = (props: any) => {
 
     return (
         <div className={styles.container}>
@@ -16,18 +15,18 @@ export default function About(props: any) {
             </Head>
             <Header></Header>
 
-            <button onClick={handleClick}>カウントアップ</button>
-            <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
-            <button onClick={handleAdd}>配列追加</button>
+            <button onClick={props.handleClick}>カウントアップ</button>
+            <button onClick={props.handleDisplay}>{props.isShow ? '非表示' : '表示'}</button>
+            <button onClick={props.handleAdd}>配列追加</button>
             <input type="text"
-                   value={text}
-                   onChange={handleChanged}
+                   value={props.text}
+                   onChange={props.handleChanged}
             />
-            <div>{text}</div>
-            {isShow ? <h1>{count}</h1> : null}
-            {isShow ? <h1>{doubleCount}</h1> : null}
+            <div>{props.text}</div>
+            {props.isShow ? <h1>{props.count}</h1> : null}
+            {props.isShow ? <h1>{props.doubleCount}</h1> : null}
             <ul>
-                {array.map((item: string | number | null, index: number) => {
+                {props.array.map((item: string | number | null, index: number) => {
                     return <li key={index}>{item}</li>
                 })}
             </ul>
@@ -36,3 +35,5 @@ export default function About(props: any) {
         </div>
     )
 }
+
+export default About;

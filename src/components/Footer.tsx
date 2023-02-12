@@ -39,7 +39,7 @@ const FooterImage = styled.img`
 `;
 
 
-export function Footer() {
+export const Footer = () => {
     return (
         <>
             <StyledFooter>

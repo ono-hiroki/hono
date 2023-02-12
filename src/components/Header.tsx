@@ -29,12 +29,18 @@ const StyledFooter = styled.footer`
     }
 `;
 
-export function Header() {
+const NAV_LINKS = [
+    {href: '/', label: 'index'},
+    {href: '/about', label: 'about'},
+]
+
+export const Header = () => {
     return (
         <>
             <StyledFooter>
-                <Link href='/'>index</Link>
-                <Link href='/about'>about</Link>
+                {NAV_LINKS.map(({href, label}) => (
+                    <Link key={href} href={href}>{label}</Link>
+                ))}
             </StyledFooter>
         </>
     )

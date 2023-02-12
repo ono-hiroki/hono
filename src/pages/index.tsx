@@ -8,9 +8,7 @@ const Container = styled.div`
     padding: 0 2rem;
 `;
 
-export default function Index(props: any) {
-    const {count, isShow, handleClick, handleDisplay, text, array, handleChanged, handleAdd} = props
-
+const Index = (props: any) => {
     return (
         <Container>
             <Head>
@@ -20,18 +18,18 @@ export default function Index(props: any) {
             </Head>
             <Header></Header>
 
-            <button onClick={handleClick}>ぼたん</button>
-            <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
+            <button onClick={props.handleClick}>ぼたん</button>
+            <button onClick={props.handleDisplay}>{props.isShow ? '非表示' : '表示'}</button>
 
-            <button onClick={handleAdd}>配列追加</button>
+            <button onClick={props.handleAdd}>配列追加</button>
             <input type="text"
-                   value={text}
-                   onChange={handleChanged}
+                   value={props.text}
+                   onChange={props.handleChanged}
             />
-            {isShow ? <h1>{count}</h1> : null}
-            <div>{text}</div>
+            {props.isShow ? <h1>{props.count}</h1> : null}
+            <div>{props.text}</div>
             <ul>
-                {array.map((item: string | number | null, index: number) => {
+                {props.array.map((item: string | number | null, index: number) => {
                     return <li key={index}>{item}</li>
                 })}
             </ul>
@@ -42,3 +40,5 @@ export default function Index(props: any) {
         </Container>
     )
 }
+
+export default Index;

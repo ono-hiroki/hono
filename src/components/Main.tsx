@@ -39,15 +39,15 @@ export function Main(props: Props) {
     }, [])
 
     return (
-            <main className={styles.main}>
-                <button onClick={handleReduce}>減らす</button>
-                <Headline
-                    page={props.page}
-                >
-                    <code className={styles.code}>pages/{props.page}.tsx</code><br/>
-                   アイテムの数は{items.length}です
-                </Headline>
-                <Links items={items} />
-            </main>
+        <main className={styles.main}>
+            <button onClick={handleReduce}>減らす</button>
+            <Headline
+                page={props.page}
+            >
+                <code className={styles.code}>pages/{props.page}.tsx</code><br/>
+                アイテムの数は{items.length}です
+            </Headline>
+            <Links items={items}/>
+        </main>
     )
 }
