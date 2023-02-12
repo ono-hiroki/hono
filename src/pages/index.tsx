@@ -2,71 +2,19 @@ import Head from 'next/head'
 import {Footer} from "src/components/Footer"
 import {Main} from "src/components/Main"
 import {Header} from "src/components/Header"
-import React, {useCallback, useEffect} from "react";
 import styled from 'styled-components';
-import Link from "next/link";
-import {set} from "immutable";
+import {useBgLightBlue} from "../hooks/useBgLightBlue";
+import {useCounter} from "src/hooks/useCounter";
+import {useInputArray} from "src/hooks/useInputArray";
 
 const Container = styled.div`
     padding: 0 2rem;
 `;
 
 export default function Home() {
-    const [count, setFoo] = React.useState(1)
-    const [text, setText] = React.useState('')
-    const [isShow, setIsShow] = React.useState(true)
-    const [array, setArray] = React.useState([])
-
-    // useCallbackは、再生性されない関数を作成する。
-    const handleClick = useCallback(() => {
-        if (count < 10) {
-            setFoo(count => count + 1)
-        }
-
-        // setFoo(count => count + 1)
-        // setFoo(count => count + 1)
-        // setFoo(foo + 1)
-        // 関数との違いは、こっちは直接値を渡しているので、
-        // この時点で値が決まっているので、useEffectの中で値を参照すると、
-        // この時点での値が参照される。
-    },[count]);
-
-    // useEffectは、レンダリング後に実行される。
-    useEffect(() => {
-        console.log('useEffect')
-        document.body.style.backgroundColor = 'lightblue'
-
-        return () => {
-            console.log('useEffect return')
-            document.body.style.backgroundColor = 'lightgreen'
-        }
-    }, [])
-
-    const handleChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.value.length > 10) {
-            return
-        }
-        setText(e.target.value.trim())
-    }
-
-    const handleDisplay = () => {
-        setIsShow(!isShow)
-    }
-
-    const handleAdd = useCallback(() => {
-        if (array.some((item) => item === text)) {
-            alert('同じ値があります')
-            return array;
-        }
-
-        // @ts-ignore
-        setArray((array) => [...array, text])
-            // スプレッド構文は、配列を展開する。破壊的な操作ではない。
-            // 破壊的な操作は、push, pop, shift, unshift, splice, sort, reverse
-            // ミュータブルとは、値を変更できること。
-            // イミュータブルとは、値を変更できないこと。　
-
-    }, [text,array])
+    const {count, isShow, handleClick, handleDisplay} = useCounter()
+    const {text, array, handleChanged, handleAdd} = useInputArray()
+    useBgLightBlue()
 
     return (
         <Container>
@@ -79,18 +27,22 @@ export default function Home() {
 
             <button onClick={handleClick}>ぼたん</button>
             <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
+
             <button onClick={handleAdd}>配列追加</button>
             <input type="text"
                    value={text}
                    onChange={handleChanged}
             />
-            <div>{text}</div>
             { isShow ? <h1>{count}</h1> : null }
+            <div>{text}</div>
             <ul>
                 {array.map((item, index) => {
                     return <li key={index}>{item}</li>
                 })}
             </ul>
+
+
+
             <Main page='index'/>
             <Footer/>
         </Container>
