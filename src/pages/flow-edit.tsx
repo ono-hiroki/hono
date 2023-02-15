@@ -23,10 +23,16 @@ const initialNodes = [
         data: {label: 'Node 3'},
         position: {x: 300, y: 150},
     },
+    {
+        id: '4',
+        data: {label: 'Node 4'},
+        position: {x: 150, y: 300},
+    }
 ];
 const initialEdges = [
     {id: 'e1-2', source: '1', target: '2'},
     {id: 'e1-3', source: '1', target: '3'},
+    {id: 'e2-4', source: '2', target: '4'},
 ];
 
 function Flow() {
@@ -44,8 +50,6 @@ function Flow() {
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
-                panOnScroll
-                selectionOnDrag
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
