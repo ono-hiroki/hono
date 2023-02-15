@@ -23,7 +23,7 @@ const useStore = create<RFState>((set, get) => ({
             id: 'root',
             type: 'mindmap',
             data: { label: 'React Flow Mind Map' },
-            position: { x: 100, y: 100 },
+            position: { x: 0, y: 0 }, // nodeOriginからの相対位置だと思う。たぶん。
         },
     ],
     edges: [],

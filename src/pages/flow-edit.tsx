@@ -5,6 +5,7 @@ import {useGetWindowSize} from "../hooks/useGetWindowSize";
 import {Controls, Panel} from 'reactflow';
 import useStore, {RFState} from "../components/react-flow/store";
 import {shallow} from "zustand/shallow";
+import 'src/styles/react-flow/flow-edit.module.css';
 
 const selector = (state: RFState) => ({
     nodes: state.nodes,
@@ -12,6 +13,8 @@ const selector = (state: RFState) => ({
     onNodesChange: state.onNodesChange,
     onEdgesChange: state.onEdgesChange,
 });
+
+const nodeOrigin = [0.5, 0.5];
 
 function Flow() {
     const {nodes, edges, onNodesChange, onEdgesChange} = useStore(selector, shallow);
@@ -21,10 +24,13 @@ function Flow() {
     return (
         <div style={{height: windowHeight, width: windowWidth}}>
             <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
+                nodes={nodes} // nodes
+                edges={edges} // edges
+                onNodesChange={onNodesChange} // ノードを追加したり削除したりしたときに呼ばれる
+                onEdgesChange={onEdgesChange} // エッジを追加したり削除したりしたときに呼ばれる
+                // @ts-ignore
+                nodeOrigin={nodeOrigin} // ノードの原点
+                fitView // ノードが画面に収まるように自動的にズームする
             > <Controls showInteractive={false} />
                 <Panel position="top-left" style={{color: '#eaeaec'}}>
                     React Flow Mind Map
