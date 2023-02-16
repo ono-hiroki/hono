@@ -18,6 +18,7 @@ export type RFState = {
     onNodesChange: OnNodesChange;
     onEdgesChange: OnEdgesChange;
     addChildNode: (parentNode: Node, position: XYPosition) => void;
+    updateNodeLabel: (nodeId: string, label: string) => void;
 };
 
 // nodesとedgesをstateとして持つ
@@ -60,6 +61,18 @@ const useStore = create<RFState>((set, get) => ({ // setはstateを更新する�
         set({ // setでstateを更新する
             nodes: [...get().nodes, newNode], // ...get().nodesは既存のノードを展開している
             edges: [...get().edges, newEdge],
+        });
+    },
+    updateNodeLabel: (nodeId: string, label: string) => {
+        set({
+            nodes: get().nodes.map((node) => {
+                if (node.id === nodeId) {
+                    // it's important to create a new object here, to inform React Flow about the changes
+                    node.data = { ...node.data, label };
+                }
+
+                return node;
+            }),
         });
     },
 }));
