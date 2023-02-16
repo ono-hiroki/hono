@@ -1,3 +1,4 @@
+import React from 'react';
 import { BaseEdge, EdgeProps, getStraightPath } from 'reactflow';
 
 function Edge(props: EdgeProps) {

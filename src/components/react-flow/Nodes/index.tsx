@@ -1,8 +1,9 @@
-import {Handle, NodeProps, Position} from 'reactflow'
+import React from 'react';
+import { Handle, NodeProps, Position } from 'reactflow';
 
 export type NodeData = {
-    label: string
-}
+    label: string;
+};
 
 function Nodes({ id, data}: NodeProps<NodeData>) {
     return (
@@ -10,11 +11,15 @@ function Nodes({ id, data}: NodeProps<NodeData>) {
             <input defaultValue={data.label} />
             <br />
             <input defaultValue={data.label} />
+            <br />
+            <input defaultValue={data.label} />
+            {/*<br />*/}
+            {/*<input defaultValue={data.label} />*/}
 
-            <Handle type="target" position={Position.Top} /> {/*　線を引くためのハンドル */}
+            <Handle type="target" position={Position.Top} />
             <Handle type="source" position={Position.Bottom} />
-            <Handle type="source" position={Position.Left} />
-            <Handle type="source" position={Position.Right} />
+            {/*<Handle type="source" position={Position.Left} />*/}
+            {/*<Handle type="source" position={Position.Right} />*/}
         </>
     );
 }
