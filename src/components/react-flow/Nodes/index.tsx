@@ -4,6 +4,7 @@ import useStore from '../store';
 
 export type NodeData = {
     label: string;
+    label2: string;
 };
 
 function Nodes({ id, data}: NodeProps<NodeData>) {
@@ -18,7 +19,7 @@ function Nodes({ id, data}: NodeProps<NodeData>) {
                 onChange={(evt) => updateNodeLabel(id, evt.target.value)}
             />
             <br />
-            <input defaultValue={data.label}
+            <input defaultValue={data.label2}
                 onChange={(evt) => updateNodeLabel(id, evt.target.value)}
             />
             {/*<br />*/}
