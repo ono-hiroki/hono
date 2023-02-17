@@ -72,14 +72,7 @@ const useStore = create<RFState>((set, get) => ({ // setはstateを更新する�
                     // { ...node.data, label }は、node.dataのプロパティを展開して、labelを上書きする
                     // labelを指定せずに、labelが上書きされるのは、node.dataのlabelと同じ名前の変数がある場合
                     // label以外を上書きしたい場合は、{ ...node.data, label, label2: 'hoge' }のように書く
-
-                    console.log('label', label2)
-                    console.log('node.data', node.data)
-                    console.log('{ ...node.data, label }', { ...node.data, label2 })
-
-
                 }
-
                 return node;
             }),
         });
