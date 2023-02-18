@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useLayoutEffect, useRef} from 'react';
 import {Handle, NodeProps, Position} from 'reactflow';
 import useStore from '../store';
 
@@ -9,6 +9,23 @@ export type NodeData = {
 
 function Nodes({id, data}: NodeProps<NodeData>) {
     const updateNodeLabel = useStore((state) => state.updateNodeLabel);
+    const inputRef = useRef<HTMLInputElement>();
+
+
+    useLayoutEffect(() => { // useLayoutEffectはレンダリング後に実行される
+        if (inputRef.current) {
+            inputRef.current.style.width = `${data.label.length * 8}px`;
+        }
+    }, [data.label.length]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (inputRef.current) {
+                inputRef.current.focus({ preventScroll: true });
+            }
+        }, 1);
+    }, []);
+
     return (
         <>
             <div className="inputWrapper">
@@ -28,17 +45,19 @@ function Nodes({id, data}: NodeProps<NodeData>) {
                 <input defaultValue={data.label}
                        onChange={(evt) => updateNodeLabel(id, evt.target.value)}
                        className="input"
+                        // @ts-ignore
+                       ref={inputRef}
                 />
                 <br/>
-                <input defaultValue={data.label2}
-                       onChange={(evt) => updateNodeLabel(id, evt.target.value)}
-                       className="input"
-                />
+                {/*<input defaultValue={data.label2}*/}
+                {/*       onChange={(evt) => updateNodeLabel(id, evt.target.value)}*/}
+                {/*       className="input"*/}
+                {/*/>*/}
             </div>
 
 
             <Handle type="target" position={Position.Top}/>
-            <Handle type="source" position={Position.Bottom}/>
+            <Handle type="source" position={Position.Top}/>
             {/*<Handle type="source" position={Position.Left} />*/}
             {/*<Handle type="source" position={Position.Right} />*/}
             {/*{console.log('data', data)}*/}

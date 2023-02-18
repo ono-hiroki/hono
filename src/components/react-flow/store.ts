@@ -63,12 +63,12 @@ const useStore = create<RFState>((set, get) => ({ // setはstateを更新する�
             edges: [...get().edges, newEdge],
         });
     },
-    updateNodeLabel: (nodeId: string, label2: string) => {
+    updateNodeLabel: (nodeId: string, label: string) => {
         set({
             nodes: get().nodes.map((node) => {
                 if (node.id === nodeId) {
                     // it's important to create a new object here, to inform React Flow about the changes
-                    node.data = { ...node.data, label2 }; // node.dataはreadonlyなので、新しいオブジェクトを作って代入する
+                    node.data = { ...node.data, label }; // node.dataはreadonlyなので、新しいオブジェクトを作って代入する
                     // { ...node.data, label }は、node.dataのプロパティを展開して、labelを上書きする
                     // labelを指定せずに、labelが上書きされるのは、node.dataのlabelと同じ名前の変数がある場合
                     // label以外を上書きしたい場合は、{ ...node.data, label, label2: 'hoge' }のように書く
