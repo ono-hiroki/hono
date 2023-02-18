@@ -1,18 +1,21 @@
 import React from 'react';
-import ReactFlow from 'reactflow';
-import {shallow} from 'zustand/shallow';
+import ReactFlow, {OnConnectEnd, OnConnectStart} from 'reactflow';
+import { shallow } from 'zustand/shallow';
 
 import 'reactflow/dist/style.css';
 
 import useStore from 'src/components/UsingaStateManagementLibrary/store';
-import {useGetWindowSize} from "../hooks/useGetWindowSize";
+import ColorChooserNode from 'src/components/UsingaStateManagementLibrary/ColorChooserNode';
+import {useGetWindowSize} from "src/hooks/useGetWindowSize";
+
+const nodeTypes = { colorChooser: ColorChooserNode };
 
 type State = {
     nodes: any[];
     edges: any[];
     onNodesChange: (nodes: any[]) => void;
     onEdgesChange: (edges: any[]) => void;
-    onConnect: (params: any) => void;
+    onConnect: OnConnectStart | OnConnectEnd;
 }
 
 const selector = (state: State) => ({
@@ -24,7 +27,8 @@ const selector = (state: State) => ({
 });
 
 function Flow() {
-    const {nodes, edges, onNodesChange, onEdgesChange, onConnect} = useStore(selector, shallow);
+    // @ts-ignore
+    const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore(selector, shallow);
     const {height: windowHeight, width: windowWidth} = useGetWindowSize()
 
 
@@ -35,7 +39,9 @@ function Flow() {
                 edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
+                // @ts-ignore
                 onConnect={onConnect}
+                nodeTypes={nodeTypes}
                 fitView
             />
         </div>
@@ -43,4 +49,3 @@ function Flow() {
 }
 
 export default Flow;
-// UsingaStateManagementLibrary
