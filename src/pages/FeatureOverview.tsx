@@ -1,22 +1,24 @@
 import React, {useCallback} from 'react';
+// import './overview.css';
 import ReactFlow, {
     addEdge,
-    MiniMap,
-    Controls,
     Background,
-    useNodesState,
-    useEdgesState,
     Connection,
-    Edge, ReactFlowProvider,
+    Controls,
+    Edge,
+    Handle,
+    MiniMap,
+    Position,
+    ReactFlowProvider,
+    useEdgesState,
+    useNodesState,
+    useReactFlow,
+    useStoreApi,
 } from 'reactflow';
 
-import {nodes as initialNodes, edges as initialEdges} from 'src/components/FeatureOverview/initial-elements';
+import {edges as initialEdges, nodes as initialNodes} from 'src/components/FeatureOverview/initial-elements';
 // import CustomNode from 'src/components/FeatureOverview/CustomNode';
-
 import 'reactflow/dist/style.css';
-// import './overview.css';
-
-import {Handle, useReactFlow, useStoreApi, Position} from 'reactflow';
 import {useGetWindowSize} from "../hooks/useGetWindowSize";
 
 const options = [
@@ -46,17 +48,16 @@ function Select({value, handleId, nodeId}) {
     const onChange = (evt: { target: { value: any; }; }) => {
         const {nodeInternals} = store.getState();
         setNodes(
-            Array.from(nodeInternals.values()).map((node) => {
+            Array.from(nodeInternals.values()).map((node) => { //Array.fromは、配列のコピーを作成する
                 if (node.id === nodeId) {
                     node.data = {
                         ...node.data,
                         selects: {
                             ...node.data.selects,
-                            [handleId]: evt.target.value,
+                            [handleId]: evt.target.value,// handleIdだと'handleId',[handleId]だと中身の値が入る
                         },
                     };
                 }
-
                 return node;
             })
         );
@@ -78,11 +79,12 @@ function Select({value, handleId, nodeId}) {
 }
 
 // @ts-ignore
-function CustomNode({id, data}) {
+function CustomNode(props) {
+    const {data, id} = props;
     return (
         <>
             <div className="custom-node__header">
-                This is a <strong>custom node</strong>
+                This is a <strong>custom node</strong>こんちくは
             </div>
             <div className="custom-node__body">
                 {Object.keys(data.selects).map((handleId) => (
@@ -103,35 +105,20 @@ const minimapStyle = {
 
 const onInit = (reactFlowInstance: any) => console.log('flow loaded:', reactFlowInstance);
 
-const reactFlowStyle = {
-    background: 'red',
-    width: '100%',
-    height: 300,
-};
-const ReactFlowNodeCustom = {
-    fontSize: '10px',
-    width: '180px',
-    background: '#f5f5f6',
-    color: '#222',
-    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 15%), 0 2px 4px -1px rgb(0 0 0 / 8%)',
-    borderRadius: '2px',
-}
-
 const OverviewFlow = () => {
     // @ts-ignore
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const onConnect = useCallback((params: Edge<any> | Connection) => setEdges((eds) => addEdge(params, eds)), []);
 
-    // we are using a bit of a shortcut here to adjust the edge type
-    // this could also be done with a custom edge for example
+    // エッジのタイプを調整するために、ここでは少しショートカットを使用しています
+    // これは、カスタムエッジなどで行うこともできます
     const edgesWithUpdatedTypes = edges.map((edge) => {
         if (edge.sourceHandle) {
             // @ts-ignore
-            const edgeType = nodes.find((node) => node.type === 'custom').data.selects[edge.sourceHandle];
-            edge.type = edgeType;
+            edge.type = nodes.find((node) => node.type === 'custom').data.selects[edge.sourceHandle];
+            // nodesの中のtypeがcustomのものの中で、dataの中のselectsの中のedge.sourceHandleの値をedge.typeに代入する
         }
-
         return edge;
     });
     const {height: windowHeight, width: windowWidth} = useGetWindowSize()
@@ -139,15 +126,14 @@ const OverviewFlow = () => {
     return (
         <div style={{height: windowHeight, width: windowWidth}}>
             <ReactFlow
-                style={ReactFlowNodeCustom}
                 nodes={nodes}
                 edges={edgesWithUpdatedTypes}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
-                onInit={onInit}
+                onInit={onInit} // ReactFlowが初期化された時に呼ばれる
                 fitView
-                attributionPosition="top-right"
+                attributionPosition="top-right" // ReactFlowが表示されている場所を指定
                 nodeTypes={nodeTypes}
             >
                 <MiniMap style={minimapStyle} zoomable pannable/>
