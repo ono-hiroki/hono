@@ -6,8 +6,6 @@ import ReactFlow, { addEdge, applyEdgeChanges, applyNodeChanges, Connection, Edg
 import 'reactflow/dist/style.css';
 
 import TextUpdaterNode from 'src/components/react-flow/TextUpdaterNode';
-
-import 'src/styles/react-flow/text-updater-node.module.css';
 import {useGetWindowSize} from "../hooks/useGetWindowSize";
 
 const rfStyle = {
@@ -77,8 +75,23 @@ function Flow() {
                 fitView
                 style={rfStyle}
             />
+            <style jsx global>{Styles}</style>
         </div>
     );
 }
 
 export default Flow;
+const Styles = `
+            .text-updater-node {
+                height: 50px;
+                border: 1px solid #eee;
+                padding: 5px;
+                border-radius: 5px;
+                background: white;
+            }
+            
+            .text-updater-node label {
+                display: block;
+                color: #777;
+                font-size: 12px;
+            }`
