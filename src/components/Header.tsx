@@ -32,6 +32,21 @@ const StyledFooter = styled.footer`
 const NAV_LINKS = [
     {href: '/', label: 'index'},
     {href: '/about', label: 'about'},
+    {href: 'CustomNodes', label: 'CustomNodes'},
+    {href: 'FeatureOverview', label: 'FeatureOverview'},
+    {href: 'flow-edit', label: 'flow-edit'},
+    {href: 'geometry', label: 'geometry'},
+    {href: 'glb', label: 'glb'},
+    {href: 'PanningandZooming', label: 'PanningandZooming'},
+    {href: 'react-flow', label: 'react-flow'},
+    {href: 'SubFlows', label: 'SubFlows'},
+    {href: 'three', label: 'three'},
+    {href: 'try-three', label: 'try-three'},
+    {href: 'UncontrolledFlow', label: 'UncontrolledFlow'},
+    {href: 'UsingaStateManagementLibrary', label: 'UsingaStateManagementLibrary'},
+    {href: 'write-line', label: 'write-line'},
+    {href: 'yakudoo', label: 'yakudoo'}
+
 ]
 
 export const Header = () => {
