@@ -42,7 +42,7 @@ export const nodes = [
         data: {
             label: 'custom style',
         },
-        className: 'circle',
+        className: 'circle', // cssで丸くする react-flow__node.circle{...}
         style: {
             background: '#2B6CB0',
             color: 'white',
@@ -91,7 +91,7 @@ export const edges = [
         id: 'e4-5',
         source: '4',
         target: '5',
-        type: 'smoothstep',
+        type: 'step',
         sourceHandle: 'handle-0',
         data: {
             selectIndex: 0,

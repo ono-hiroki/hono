@@ -134,7 +134,7 @@ const OverviewFlow = () => {
                 onInit={onInit} // ReactFlowが初期化された時に呼ばれる
                 fitView
                 attributionPosition="top-right" // ReactFlowが表示されている場所を指定
-                nodeTypes={nodeTypes}
+                nodeTypes={nodeTypes} // custom nodeを使うために必要
             >
                 <MiniMap style={minimapStyle} zoomable pannable/>
                 <Controls/>
