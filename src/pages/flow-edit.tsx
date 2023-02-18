@@ -19,7 +19,6 @@ import MindMapNode from "src/components/react-flow/Nodes";
 import MindMapEdge from "src/components/react-flow/Edges";
 
 
-
 const selector = (state: RFState) => ({
     nodes: state.nodes,
     edges: state.edges,
@@ -29,8 +28,8 @@ const selector = (state: RFState) => ({
 });
 
 const nodeOrigin: NodeOrigin = [0.5, 0.5];
-const connectionLineStyle = { stroke: '#F6AD55', strokeWidth: 3 };
-const defaultEdgeOptions = { style: connectionLineStyle, type: 'mindmap' };
+const connectionLineStyle = {stroke: '#F6AD55', strokeWidth: 3};
+const defaultEdgeOptions = {style: connectionLineStyle, type: 'mindmap'};
 
 const nodeTypes = {
     mindmap: MindMapNode,
@@ -43,13 +42,13 @@ const edgeTypes = {
 function Flow() {
     // whenever you use multiple values, you should use shallow for making sure that the component only re-renders when one of the values change
     // shallowは、値が変更されたときにコンポーネントのみを再レンダリングすることを確認するために使用する必要がある
-    const { nodes, edges, onNodesChange, onEdgesChange, addChildNode } = useStore(selector, shallow);
+    const {nodes, edges, onNodesChange, onEdgesChange, addChildNode} = useStore(selector, shallow);
     const connectingNodeId = useRef<string | null>(null);
     const store = useStoreApi();
-    const { project } = useReactFlow();
+    const {project} = useReactFlow();
 
     const getChildNodePosition = (event: MouseEvent, parentNode?: Node) => { // ?はオプショナルチェイニング あってもなくてもいい
-        const { domNode } = store.getState(); // 選択したノードの位置を取得
+        const {domNode} = store.getState(); // 選択したノードの位置を取得
 
         if (
             !domNode || // ノードが初期化されていない場合は、positionAbsoluteやwidth、heightがないので、チェックが必要
@@ -60,7 +59,7 @@ function Flow() {
             return;
         }
 
-        const { top, left, right, bottom } = domNode.getBoundingClientRect(); // topはノードの上端の位置 leftはノードの左端の位置　値はpx
+        const {top, left, right, bottom} = domNode.getBoundingClientRect(); // topはノードの上端の位置 leftはノードの左端の位置　値はpx
         // console.log(domNode.getBoundingClientRect(),"domNode.getBoundingClientRect()")
 
 
@@ -81,8 +80,8 @@ function Flow() {
             // 下と右が正のであることに注意
             // 原点からのマウスの位置、親ノードの原点からの位置(ノードの中心)がわかる
             // 求めたいのは、追加するノードの親からの相対位置
-                // 追加するノードは右下が原点であることに注意
-                // 親ノードの原点は中心が原点であることに注意
+            // 追加するノードは右下が原点であることに注意
+            // 親ノードの原点は中心が原点であることに注意
 
             // panePositionは原点からのマウスの位置
             // parentNode.positionAbsoluteは親ノードの原点からの位置
@@ -93,7 +92,7 @@ function Flow() {
 
 
     // ノードをクリックしたときに呼ばれる
-    const onConnectStart: OnConnectStart = useCallback((_, { nodeId }) => {
+    const onConnectStart: OnConnectStart = useCallback((_, {nodeId}) => {
         connectingNodeId.current = nodeId; // 接続する位置を決める
         console.log("onConnectStart")
     }, []);
@@ -101,7 +100,7 @@ function Flow() {
     // ノードをドラッグしたあとに呼ばれる
     const onConnectEnd: OnConnectEnd = useCallback(
         (event) => {
-            const { nodeInternals } = store.getState(); // nodeInternalsはNodeの情報を持っている
+            const {nodeInternals} = store.getState(); // nodeInternalsはNodeの情報を持っている
             // console.log(nodeInternals,"nodeInternals") // 現状存在するノードの情報すべてが入っている
             // console.log(nodeInternals.get(connectingNodeId.current)) // 選択したノードの情報が入っている
             const targetIsPane = (event.target as Element).classList.contains('react-flow__pane'); // 選択したノードに対して、クラス名がreact-flow__paneを持っているかどうかを判定している
@@ -141,12 +140,65 @@ function Flow() {
                 panOnScroll
                 selectionOnDrag
             >
-                <Background gap={100} size={10} />
-                <Controls showInteractive={false} />
+                <Background gap={100} size={10}/>
+                <Controls showInteractive={false}/>
                 <Panel position="top-left" style={{color: '#eaeaec'}}>
                     React Flow Mind Map
                 </Panel>
             </ReactFlow>
+
+            <style jsx global>{`
+                .react-flow__handle.target { // ハンドルtargetのスタイル もともとあったやつ
+                  top: 50%; // ハンドルの位置を中心にする
+                  pointer-events: none; // ハンドルをクリックしても反応しないようにする
+                  opacity: 0; // ハンドルを見えなくする
+                }
+                
+                .react-flow__handle.source { // ハンドルsourceのスタイル もともとあったやつ
+                  top: 0; // ハンドルの位置を上にする
+                  left: 0; // ハンドルの位置を左にする
+                  transform: none; // ハンドルの位置を左にする
+                  background: #f6ad55; // ハンドルの色を変える
+                  height: 100%; // ハンドルの高さを変える
+                  width: 100%;  // ハンドルの幅を変える
+                  border-radius: 2px; // ハンドルの角を丸くする
+                  border: none; // ハンドルの枠線を消す
+                }
+                
+                .react-flow__node-mindmap { // ノードのスタイル もともとあったやつ
+                  background: #f6ad55;
+                  border-radius: 2px;
+                  border: 1px solid transparent;
+                  padding: 2px 5px;
+                  font-weight: 700;
+                }
+                
+                .inputWrapper {
+                  display: flex;
+                  height: 20px;
+                  z-index: 1;
+                  position: relative;
+                }
+                
+                .dragHandle { 
+                  background: transparent;
+                  width: 14px;
+                  height: 100%;
+                  margin-right: 4px;
+                  display: flex;
+                  align-items: center;
+                }
+                
+                .input {
+                  border: none;
+                  padding: 0 2px;
+                  border-radius: 1px;
+                  font-weight: 700;
+                  background: transparent;
+                  height: 100%;
+                  color: #222;
+                }
+            `}</style>
         </div>
     );
 }
@@ -154,6 +206,6 @@ function Flow() {
 // eslint-disable-next-line react/display-name
 export default () => (
     <ReactFlowProvider>
-        <Flow />
+        <Flow/>
     </ReactFlowProvider>
 );
