@@ -148,6 +148,15 @@ function Flow() {
             </ReactFlow>
 
             <style jsx global>{`
+            body {
+                  margin: 0;
+                  background-color: #f8f8f8;
+                  height: 100%;
+                }
+                
+                .header {
+                  color: #cdcdcd;
+                }
                 .react-flow__handle.target { // ハンドルtargetのスタイル もともとあったやつ
                   top: 50%; // ハンドルの位置を中心にする
                   pointer-events: none; // ハンドルをクリックしても反応しないようにする
