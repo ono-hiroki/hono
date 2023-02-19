@@ -1,33 +1,38 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, Handle, Position } from 'reactflow';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, Handle, Position, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
 
 import {useGetWindowSize} from "../hooks/useGetWindowSize";
 
 const initialNodes = [
-    { id: '0', type: 'custominput', position: { x: 0, y: 150 } },
-    { id: 'A', type: 'customnode', position: { x: 250, y: 0 } },
-    { id: 'B', type: 'customnode', position: { x: 250, y: 150 } },
-    { id: 'C', type: 'customnode', position: { x: 250, y: 300 } },
+    {id: '0', type: 'custominput', position: {x: 0, y: 150}},
+    {id: 'A', type: 'customnode', position: {x: 250, y: 0}},
+    {id: 'B', type: 'customnode', position: {x: 250, y: 150}},
+    {id: 'C', type: 'customnode', position: {x: 250, y: 300}},
 ];
 
-const isValidConnection = (connection) => connection.target === 'B';
-const onConnectStart = (_, { nodeId, handleType }) =>
-    console.log('on connect start', { nodeId, handleType });
-const onConnectEnd = (event) => console.log('on connect end', event);
+const isValidConnection = (connection: { target: string; }) => connection.target === 'B';
+// @ts-ignore
+const onConnectStart = (_, {nodeId, handleType}) =>
+    console.log('on connect start', {nodeId, handleType});
+const onConnectEnd = (event: any) => console.log('on connect end', event);
 
 const CustomInput = () => (
     <>
         <div>Only connectable with B</div>
-        <Handle type="source" position={Position.Right} isValidConnection={isValidConnection} />
+        {/* @ts-ignore */}
+        <Handle type="source" position={Position.Right} isValidConnection={isValidConnection}/>
     </>
 );
 
-const CustomNode = ({ id }) => (
+// @ts-ignore
+const CustomNode = ({id}) => (
     <>
-        <Handle type="target" position={Position.Left} isValidConnection={isValidConnection} />
+        {/* @ts-ignore */}
+        <Handle type="target" position={Position.Left} isValidConnection={isValidConnection}/>
         <div>{id}</div>
-        <Handle type="source" position={Position.Right} isValidConnection={isValidConnection} />
+        {/* @ts-ignore */}
+        <Handle type="source" position={Position.Right} isValidConnection={isValidConnection}/>
     </>
 );
 
@@ -38,10 +43,11 @@ const nodeTypes = {
 
 const HorizontalFlow = () => {
     const {width, height} = useGetWindowSize();
+    // @ts-ignore
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-    const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
+    const onConnect = useCallback((params: Edge<any> | Connection) => setEdges((els) => addEdge(params, els)), []);
 
     return (
         <div style={{ width: width, height: height }}>
