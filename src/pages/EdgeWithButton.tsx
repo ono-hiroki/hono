@@ -11,7 +11,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import ButtonEdge from 'src/components/EdgeWithButton/ButtonEdge';
+import ButtonEdge from '../components/EdgeWithButton/ButtonEdge';
 import {useGetWindowSize} from "../hooks/useGetWindowSize";
 
 const initialNodes = [
