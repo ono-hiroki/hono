@@ -6,6 +6,8 @@ import ReactFlow, {
     MiniMap,
     Controls,
     Background,
+    Connection,
+    Edge,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -16,10 +18,10 @@ const initialNodes = [
     {
         id: 'ewb-1',
         type: 'input',
-        data: { label: 'Input 1' },
-        position: { x: 250, y: 0 },
+        data: {label: 'Input 1'},
+        position: {x: 250, y: 0},
     },
-    { id: 'ewb-2', data: { label: 'Node 2' }, position: { x: 250, y: 300 } },
+    {id: 'ewb-2', data: {label: 'Node 2'}, position: {x: 250, y: 300}},
 ];
 
 const initialEdges = [
@@ -40,7 +42,7 @@ const EdgeWithButtonFlow = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const onConnect = useCallback(
-        (params) => setEdges((eds) => addEdge({ ...params, type: 'buttonedge' }, eds)),
+        (params: Edge<any> | Connection) => setEdges((eds) => addEdge({ ...params, type: 'buttonedge' }, eds)),
         []
     );
 
@@ -53,6 +55,7 @@ const EdgeWithButtonFlow = () => {
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
             snapToGrid={true}
+            // @ts-ignore
             edgeTypes={edgeTypes}
             fitView
             attributionPosition="top-right"
