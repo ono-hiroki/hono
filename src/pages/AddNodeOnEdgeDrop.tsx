@@ -5,6 +5,8 @@ import ReactFlow, {
     addEdge,
     useReactFlow,
     ReactFlowProvider,
+    Connection,
+    Edge,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -14,8 +16,8 @@ const initialNodes = [
     {
         id: '0',
         type: 'input',
-        data: { label: 'Node' },
-        position: { x: 0, y: 50 },
+        data: {label: 'Node'},
+        position: {x: 0, y: 50},
     },
 ];
 
@@ -32,19 +34,21 @@ const AddNodeOnEdgeDrop = () => {
     const connectingNodeId = useRef(null);
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-    const { project } = useReactFlow();
-    const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
+    const {project} = useReactFlow();
+    const onConnect = useCallback((params: Edge<any> | Connection) => setEdges((eds) => addEdge(params, eds)), []);
 
+    // @ts-ignore
     const onConnectStart = useCallback((_, { nodeId }) => {
         connectingNodeId.current = nodeId;
     }, []);
 
     const onConnectEnd = useCallback(
-        (event) => {
+        (event: { target: { classList: { contains: (arg0: string) => any; }; }; clientX: number; clientY: number; }) => {
             const targetIsPane = event.target.classList.contains('react-flow__pane');
 
             if (targetIsPane) {
                 // we need to remove the wrapper bounds, in order to get the correct position
+                // @ts-ignore
                 const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
                 const id = getId();
                 const newNode = {
@@ -55,6 +59,7 @@ const AddNodeOnEdgeDrop = () => {
                 };
 
                 setNodes((nds) => nds.concat(newNode));
+                // @ts-ignore
                 setEdges((eds) => eds.concat({ id, source: connectingNodeId.current, target: id }));
             }
         },
@@ -70,6 +75,7 @@ const AddNodeOnEdgeDrop = () => {
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
                 onConnectStart={onConnectStart}
+                // @ts-ignore
                 onConnectEnd={onConnectEnd}
                 fitView
                 fitViewOptions={fitViewOptions}
@@ -79,6 +85,7 @@ const AddNodeOnEdgeDrop = () => {
     );
 };
 
+// eslint-disable-next-line react/display-name
 export default () => (
     <ReactFlowProvider>
         <AddNodeOnEdgeDrop />
