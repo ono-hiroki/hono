@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import ReactFlow, {useNodesState, useEdgesState, addEdge, MiniMap, Controls} from 'reactflow';
+import ReactFlow, {useNodesState, useEdgesState, addEdge, MiniMap, Controls, Connection, Edge} from 'reactflow';
 import styled, {ThemeProvider} from 'styled-components';
 
 import {nodes as initialNodes, edges as initialEdges} from 'src/components/LightDarkMode/nodes-edges';
@@ -50,7 +50,7 @@ const Flow = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-    const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
+    const onConnect = useCallback((params: Edge<any> | Connection) => setEdges((eds) => addEdge(params, eds)), []);
 
     return (
         <ReactFlowStyled
@@ -68,6 +68,7 @@ const Flow = () => {
     );
 };
 
+// eslint-disable-next-line react/display-name
 export default () => {
     const {width: windowWidth, height: windowHeight} = useGetWindowSize()
     const [mode, setMode] = useState('light');
