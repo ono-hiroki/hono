@@ -35,8 +35,8 @@ const initialEdges = [
     {id: 'edge-2', source: 'node-1', target: 'node-3', sourceHandle: 'b'},
 ];
 
-// we define the nodeTypes outside of the component to prevent re-renderings
-// you could also use useMemo inside the component
+// 再レンダリングを防ぐためにコンポーネントの外でnodeTypesを定義する
+// コンポーネント内でuseMemoを使用することもできる
 const nodeTypes = {textUpdater: TextUpdaterNode};
 
 function Flow() {

@@ -13,7 +13,7 @@ function TextUpdaterNode({ data }) {
             <Handle type="target" position={Position.Top} />
             <div>
                 <label htmlFor="text">Text:</label>
-                <input id="text" name="text" onChange={onChange} />
+                <input id="text" name="text" onChange={onChange} className="nodrag" /> {/** nodragは、ドラッグ操作を無効にするためのクラス */}
             </div>
             <Handle type="source" position={Position.Bottom} id="a" style={handleStyle} />
             <Handle type="source" position={Position.Bottom} id="b" />

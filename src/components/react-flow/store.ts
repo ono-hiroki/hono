@@ -55,6 +55,8 @@ const useStore = create<RFState>((set, get) => ({ // setはstateを更新する�
         const newEdge = {
             id: nanoid(),
             source: parentNode.id,
+            // もし複数のエッジをつなげたい場合は、source: [parentNode.id, parentNode.id]のように配列で指定する
+            // もし複数のハンドルがある場合は、sourceHandle: 'hoge'のように指定する
             target: newNode.id,
         };
 

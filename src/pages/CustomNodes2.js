@@ -99,6 +99,7 @@ const CustomNodeFlow = () => {
                 style: {stroke: '#fff'},
             },
         ]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const Styles = `
@@ -115,6 +116,7 @@ const CustomNodeFlow = () => {
     const onConnect = useCallback(
         (params) =>
             setEdges((eds) => addEdge({...params, animated: true, style: {stroke: '#fff'}}, eds)),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         []
     );
     const {height: windowHeight, width: windowWidth} = useGetWindowSize()
