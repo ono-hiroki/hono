@@ -11,6 +11,7 @@ const Placeholder = () => (
 
 const zoomSelector = (s) => s.transform[2];
 
+// eslint-disable-next-line react/display-name
 export default memo(({ data }) => {
     const zoom = useStore(zoomSelector);
     const showContent = zoom >= 1.5;

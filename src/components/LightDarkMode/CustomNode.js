@@ -17,6 +17,7 @@ const Node = styled.div`
   }
 `;
 
+// eslint-disable-next-line react/display-name
 export default memo(({ data, selected }) => {
     return (
         <Node selected={selected}>

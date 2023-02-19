@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Handle, Position } from 'reactflow';
 
+// eslint-disable-next-line react/display-name
 export default memo(({ data }) => {
     return (
         <>

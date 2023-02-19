@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from 'reactflow';
+import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState, Connection, Edge} from 'reactflow';
+// @ts-ignore
 import dagre from 'dagre';
 import 'reactflow/dist/style.css';
 
-import { initialNodes, initialEdges } from 'src/components/DagreTree/nodes-edges';
+import {initialNodes, initialEdges} from 'src/components/DagreTree/nodes-edges';
 
 import {useGetWindowSize} from "../hooks/useGetWindowSize";
 
@@ -13,12 +14,12 @@ dagreGraph.setDefaultEdgeLabel(() => ({}));
 const nodeWidth = 172;
 const nodeHeight = 36;
 
-const getLayoutedElements = (nodes, edges, direction = 'TB') => {
+const getLayoutedElements = (nodes: any[], edges: any[], direction = 'TB') => {
     const isHorizontal = direction === 'LR';
-    dagreGraph.setGraph({ rankdir: direction });
+    dagreGraph.setGraph({rankdir: direction});
 
     nodes.forEach((node) => {
-        dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
+        dagreGraph.setNode(node.id, {width: nodeWidth, height: nodeHeight});
     });
 
     edges.forEach((edge) => {
@@ -27,7 +28,7 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
 
     dagre.layout(dagreGraph);
 
-    nodes.forEach((node) => {
+    nodes.forEach((node: { id: any; targetPosition: string; sourcePosition: string; position: { x: number; y: number; }; }) => {
         const nodeWithPosition = dagreGraph.node(node.id);
         node.targetPosition = isHorizontal ? 'left' : 'top';
         node.sourcePosition = isHorizontal ? 'right' : 'bottom';
@@ -42,10 +43,10 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
         return node;
     });
 
-    return { nodes, edges };
+    return {nodes, edges};
 };
 
-const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+const {nodes: layoutedNodes, edges: layoutedEdges} = getLayoutedElements(
     initialNodes,
     initialEdges
 );
@@ -56,14 +57,14 @@ const LayoutFlow = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
 
     const onConnect = useCallback(
-        (params) =>
+        (params: Edge<any> | Connection) =>
             setEdges((eds) =>
                 addEdge({ ...params, type: ConnectionLineType.SmoothStep, animated: true }, eds)
             ),
         []
     );
     const onLayout = useCallback(
-        (direction) => {
+        (direction: string | undefined) => {
             const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
                 nodes,
                 edges,

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line react/display-name
 export default () => {
     const onDragStart = (event, nodeType) => {
         event.dataTransfer.setData('application/reactflow', nodeType);
