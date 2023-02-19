@@ -7,6 +7,8 @@ import ReactFlow, {
     useEdgesState,
     addEdge,
     Position,
+    Connection,
+    Edge,
 } from 'reactflow';
 
 import 'reactflow/dist/base.css';
@@ -52,7 +54,7 @@ const Flow = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-    const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
+    const onConnect = useCallback((params: Edge<any> | Connection) => setEdges((els) => addEdge(params, els)), []);
 
     return (
         <div style={{width: windowWidth, height: windowHeight}}>
