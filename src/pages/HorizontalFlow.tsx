@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import ReactFlow, {useNodesState, useEdgesState, addEdge} from 'reactflow';
+import ReactFlow, {useNodesState, useEdgesState, addEdge, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../hooks/useGetWindowSize";
 
@@ -116,9 +116,10 @@ const initialEdges = [
 
 const HorizontalFlow = () => {
     const {width, height} = useGetWindowSize()
+    // @ts-ignore
     const [nodes, _, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-    const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
+    const onConnect = useCallback((params: Edge<any> | Connection) => setEdges((els) => addEdge(params, els)), []);
 
     return (
         <div style={{width: width, height: height}}>
