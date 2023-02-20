@@ -70,13 +70,13 @@ export const initialEdges = [
         id: 'e2a-3',
         source: '2',
         target: '3',
-        sourceHandle: 'a',
+        sourceHandle: 'top',
     },
     {
         id: 'e2b-4',
         source: '2',
         target: '4',
-        sourceHandle: 'b',
+        sourceHandle: 'bottom',
     },
     {
         id: 'e3a-5',

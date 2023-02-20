@@ -2,18 +2,18 @@ import React from 'react';
 import { toPng } from 'html-to-image';
 
 function downloadImage(dataUrl) {
-    const a = document.createElement('a');
+    const a = document.createElement('a'); // aタグを作成
 
-    a.setAttribute('download', 'reactflow.png');
-    a.setAttribute('href', dataUrl);
-    a.click();
+    a.setAttribute('download', 'reactflow.png'); // ダウンロード時のファイル名を設定
+    a.setAttribute('href', dataUrl); // ダウンロードするファイルのURLを設定
+    a.click(); // クリックイベントを発生させる
 }
 
 function DownloadButton() {
     const onClick = () => {
         toPng(document.querySelector('.react-flow'), {
             filter: (node) => {
-                // we don't want to add the minimap and the controls to the image
+                // わたしたちは、ミニマップとコントロールを画像に追加したくありません。
                 if (
                     node?.classList?.contains('react-flow__minimap') ||
                     node?.classList?.contains('react-flow__controls')

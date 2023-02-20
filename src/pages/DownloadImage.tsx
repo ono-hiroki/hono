@@ -43,7 +43,7 @@ const CustomNodeFlow = () => {
                 connectionLineStyle={connectionLineStyle}
                 // @ts-ignore
                 connectionLineType="smoothstep"
-                snapToGrid={true}
+                snapToGrid={true} // snapGridの幅で動く
                 // @ts-ignore
                 snapGrid={snapGrid}
                 defaultViewport={defaultViewport}
