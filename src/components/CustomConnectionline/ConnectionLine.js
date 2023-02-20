@@ -1,35 +1,19 @@
-import React, { useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, Background } from 'reactflow';
-import 'reactflow/dist/style.css';
+import React from 'react';
 
-import ConnectionLine from './ConnectionLine';
+// eslint-disable-next-line react/display-name
+export default (props) => {
+    const {
+        fromX, fromY, fromPosition, toX, toY, toPosition, connectionLineType, connectionLineStyle,
+    } = props;
 
-const initialNodes = [
-    {
-        id: 'connectionline-1',
-        type: 'input',
-        data: { label: 'Node 1' },
-        position: { x: 250, y: 5 },
-    },
-];
-
-const ConnectionLineFlow = () => {
-    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-    const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-    const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
-
-    return (
-        <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            connectionLineComponent={ConnectionLine}
-            onConnect={onConnect}
-        >
-            <Background variant="lines" />
-        </ReactFlow>
-    );
+    return (<g>
+            <path
+                fill="none"
+                stroke="#222"
+                strokeWidth={1.5}
+                className="animated"
+                d={`M${fromX},${fromY} C ${fromX} ${toY} ${fromX} ${toY} ${toX},${toY}`}
+            />
+            <circle cx={toX} cy={toY} fill="#fff" r={3} stroke="#222" strokeWidth={1.5}/>
+        </g>);
 };
-
-export default ConnectionLineFlow;
