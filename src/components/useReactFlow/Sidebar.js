@@ -4,6 +4,12 @@ import { useStoreApi, useReactFlow } from 'reactflow';
 // eslint-disable-next-line react/display-name
 export default () => {
     const store = useStoreApi();
+    // useReactFlow()は、useStoreApi()と同じように、
+    // ReactFlowコンポーネントの内部状態を取得するためのフックです。
+    // 違いは、useStoreApi()は、ReactFlowコンポーネントの内部状態を
+    // カスタムフックの外部で取得するためのフックであるのに対し、
+    // useReactFlow()は、ReactFlowコンポーネントの内部状態を
+    // カスタムフックの内部で取得するためのフックであるという点です。
     const { zoomIn, zoomOut, setCenter } = useReactFlow();
 
     const focusNode = () => {

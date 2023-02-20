@@ -43,7 +43,7 @@ const ProviderFlow = () => {
 
     return (
         <div className="providerflow" style={{width: windowWidth, height: windowHeight}}>
-            <ReactFlowProvider>
+            <ReactFlowProvider> {/* ReactFlowProviderは必須 なぜなら、useNodesStateやuseEdgesStateはReactFlowProviderの子孫である必要があるから */}
                 <div className="reactflow-wrapper">
                     <ReactFlow
                         nodes={nodes}
