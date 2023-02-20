@@ -1,3 +1,5 @@
+// 説明 : このページは、ReactFlowのプロパティを調べるためのページです。
+// InteractionProps.tsx
 import React, {useState, useCallback} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, addEdge, MiniMap, Controls, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -71,28 +73,28 @@ const InteractionFlow = () => {
     const [captureElementClick, setCaptureElementClick] = useState(false);
 
     return (
-        <div style={{height: windowHeight, width: windowWidth}}>
+        <div style={{height: windowHeight, width: windowWidth}} >
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
-                elementsSelectable={isSelectable}
-                nodesConnectable={isConnectable}
-                nodesDraggable={isDraggable}
-                zoomOnScroll={zoomOnScroll}
-                panOnScroll={panOnScroll}
+                elementsSelectable={isSelectable}  // これがtrueのとき、ノードをクリックで選択できるようになる。
+                nodesConnectable={isConnectable} // これがtrueのとき、ノードをドラッグで接続できるようになる。
+                nodesDraggable={isDraggable} // これがtrueのとき、ノードをドラッグできるようになる。
+                zoomOnScroll={zoomOnScroll} // これがtrueのとき、マウスホイールでズームインできるようになる。
+                panOnScroll={panOnScroll} // これがtrueのとき、マウスホイールでパンできるようになる。
                 // @ts-ignore
-                panOnScrollMode={panOnScrollMode}
-                zoomOnDoubleClick={zoomOnDoubleClick}
+                panOnScrollMode={panOnScrollMode} // これがtrueのとき、マウスホイールでパンできるようになる。
+                zoomOnDoubleClick={zoomOnDoubleClick} // これがtrueのとき、ダブルクリックでズームインできるようになる。
                 onConnect={onConnect}
-                onNodeClick={captureElementClick ? onNodeClick : undefined}
-                onNodeDragStart={onNodeDragStart}
-                onNodeDragStop={onNodeDragStop}
-                panOnDrag={panOnDrag}
-                onPaneClick={captureZoomClick ? onPaneClick : undefined}
-                onPaneScroll={captureZoomScroll ? onPaneScroll : undefined}
-                onPaneContextMenu={captureZoomClick ? onPaneContextMenu : undefined}
+                onNodeClick={captureElementClick ? onNodeClick : undefined} // これがtrueのとき、ノードをクリックでonNodeClickが呼ばれる。
+                onNodeDragStart={onNodeDragStart} // ノードをドラッグを始めると、onNodeDragStartが呼ばれる。
+                onNodeDragStop={onNodeDragStop} // ノードをドラッグを止めると、onNodeDragStopが呼ばれる。
+                panOnDrag={panOnDrag} // これがtrueのとき、ノードをドラッグでパンできるようになる。
+                onPaneClick={captureZoomClick ? onPaneClick : undefined}  // これがtrueのとき、ノードをクリックでonPaneClickが呼ばれる。
+                onPaneScroll={captureZoomScroll ? onPaneScroll : undefined} // これがtrueのとき、マウスホイールがスクロールされると、onPaneScrollが呼ばれる。
+                onPaneContextMenu={captureZoomClick ? onPaneContextMenu : undefined}  // これがtrueのとき、右クリックでonPaneContextMenuが呼ばれる。
                 fitView
                 attributionPosition="top-right"
             >
