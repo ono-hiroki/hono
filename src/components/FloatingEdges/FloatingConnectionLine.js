@@ -3,7 +3,9 @@ import { getBezierPath } from 'reactflow';
 
 import { getEdgeParams } from './utils.js';
 
-function FloatingConnectionLine({ targetX, targetY, sourcePosition, targetPosition, sourceNode }) {
+function FloatingConnectionLine(props) {
+    const { sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition } = props;
+    console.log(props);
     if (!sourceNode) {
         return null;
     }
