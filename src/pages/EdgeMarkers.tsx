@@ -1,3 +1,4 @@
+// EdgeMarkers.tsx
 import React from 'react';
 import ReactFlow, { Background, MarkerType } from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -92,7 +93,7 @@ const defaultEdges = [
         },
         label: 'marker size and color',
         style: {
-            strokeWidth: 2,
+            strokeWidth: 4,
             stroke: '#FF0072',
         },
     },
@@ -102,6 +103,7 @@ export default function MarkersExample() {
     const {width: windowWidth, height: windowHeight} = useGetWindowSize();
     return (
         <div style={{ width: windowWidth, height: windowHeight }}>
+            {/* なくても動く 謎い */}
             <svg style={{ position: 'absolute', top: 0, left: 0 }}>
                 <defs>
                     <marker
