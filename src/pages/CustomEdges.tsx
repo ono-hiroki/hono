@@ -120,9 +120,12 @@ const initialEdges = [
         source: 'node-5',
         target: 'node-8',
         type: 'custom',
-        data: {text: 'custom edge'},
+        data: {text: 'custom edge カスタムエッジ'},
         markerEnd: {
             type: MarkerType.ArrowClosed,
+            width: 20,
+            height: 20,
+            color: '#FF0072',
         },
     },
 ];
