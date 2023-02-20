@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+// EdgeWithButton.tsx
+import React, {useCallback} from 'react';
 import ReactFlow, {
     useNodesState,
     useEdgesState,
@@ -21,7 +22,11 @@ const initialNodes = [
         data: {label: 'Input 1'},
         position: {x: 250, y: 0},
     },
-    {id: 'ewb-2', data: {label: 'Node 2'}, position: {x: 250, y: 300}},
+    {
+        id: 'ewb-2',
+        data: {label: 'Node 2'},
+        position: {x: 250, y: 300}
+    },
 ];
 
 const initialEdges = [
@@ -42,28 +47,28 @@ const EdgeWithButtonFlow = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const onConnect = useCallback(
-        (params: Edge<any> | Connection) => setEdges((eds) => addEdge({ ...params, type: 'buttonedge' }, eds)),
+        (params: Edge<any> | Connection) => setEdges((eds) => addEdge({...params, type: 'buttonedge'}, eds)),
         []
     );
 
     return (
-        <div style={{ width: windowWidth, height: windowHeight }}>
-        <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onConnect={onConnect}
-            snapToGrid={true}
-            // @ts-ignore
-            edgeTypes={edgeTypes}
-            fitView
-            attributionPosition="top-right"
-        >
-            <MiniMap />
-            <Controls />
-            <Background />
-        </ReactFlow>
+        <div style={{width: windowWidth, height: windowHeight}}>
+            <ReactFlow
+                nodes={nodes}
+                edges={edges}
+                onNodesChange={onNodesChange}
+                onEdgesChange={onEdgesChange}
+                onConnect={onConnect}
+                snapToGrid={true}
+                // @ts-ignore
+                edgeTypes={edgeTypes}
+                fitView
+                attributionPosition="top-right"
+            >
+                <MiniMap/>
+                <Controls/>
+                <Background/>
+            </ReactFlow>
             <style jsx global>{Style}</style>
         </div>
     );
