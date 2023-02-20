@@ -1,3 +1,4 @@
+// DeleteEdgeonDrop.tsx
 import React, {useCallback, useRef} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, Controls, updateEdge, addEdge, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -36,12 +37,13 @@ const DeleteEdgeDrop = () => {
     }, []);
 
     const onEdgeUpdate = useCallback((oldEdge: Edge<any>, newConnection: Connection) => {
+        // エッジを持った時点(onEdgeUpdateStart)で、必ずfalseになるので他のノードにつなぐ(更新)ときは、trueに戻す
         edgeUpdateSuccessful.current = true;
         setEdges((els) => updateEdge(oldEdge, newConnection, els));
     }, []);
 
     const onEdgeUpdateEnd = useCallback((_: any, edge: { id: string; }) => {
-        if (!edgeUpdateSuccessful.current) {
+        if (!edgeUpdateSuccessful.current) { // edgeUpdateSuccessful が false の場合は、エッジを削除する
             setEdges((eds) => eds.filter((e) => e.id !== edge.id));
         }
 
