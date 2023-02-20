@@ -1,16 +1,8 @@
 import React, { FC } from 'react';
 import { EdgeProps, getBezierPath, EdgeLabelRenderer } from 'reactflow';
 
-const CustomEdge: FC<EdgeProps> = ({
-                                       id,
-                                       sourceX,
-                                       sourceY,
-                                       targetX,
-                                       targetY,
-                                       sourcePosition,
-                                       targetPosition,
-                                       data,
-                                   }) => {
+const CustomEdge: FC<EdgeProps> = (props) => {
+    const { id, sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition, data } = props;
     const [edgePath, labelX, labelY] = getBezierPath({
         sourceX,
         sourceY,

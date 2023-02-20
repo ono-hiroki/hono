@@ -1,3 +1,5 @@
+// EdgeLabelRenderer.tsx
+// edgeにhtmlを追加する
 import React, {useCallback} from 'react';
 import ReactFlow, {
     Controls,
