@@ -1,3 +1,4 @@
+// SaveAndRestore.tsx
 import React, {useState, useCallback} from 'react';
 import ReactFlow, {
     ReactFlowProvider,
@@ -35,14 +36,14 @@ const SaveRestore = () => {
         if (rfInstance) {
             // @ts-ignore
             const flow = rfInstance.toObject();
-            localStorage.setItem(flowKey, JSON.stringify(flow));
+            localStorage.setItem(flowKey, JSON.stringify(flow));// localstorageに保存
         }
     }, [rfInstance]);
 
     const onRestore = useCallback(() => {
         const restoreFlow = async () => {
             // @ts-ignore
-            const flow = JSON.parse(localStorage.getItem(flowKey));
+            const flow = JSON.parse(localStorage.getItem(flowKey));// localstorageから取得
 
             if (flow) {
                 const {x = 0, y = 0, zoom = 1} = flow.viewport;
@@ -76,7 +77,7 @@ const SaveRestore = () => {
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
                 // @ts-ignore
-                onInit={setRfInstance}
+                onInit={ (props) => (setRfInstance(props),console.log('onInit props', props))}
             >
                 <div className="save__controls">
                     <button onClick={onSave}>save</button>
