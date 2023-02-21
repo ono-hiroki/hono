@@ -27,7 +27,8 @@ const TouchDeviceFlow = () => {
     const {width: windowWidth, height: windowHeight} = useGetWindowSize()
     const [nodes, , onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-    const onConnect = useCallback((connection: Edge<any> | Connection) => setEdges((eds) => addEdge(connection, eds)), []);
+    const onConnect = useCallback((connection: Edge<any> | Connection) =>
+                setEdges((eds) => addEdge(connection, eds)), []);
 
     return (
         <div style={{width: windowWidth, height: windowHeight}}>
@@ -39,6 +40,7 @@ const TouchDeviceFlow = () => {
             onEdgesChange={onEdgesChange}
             className="touchdevice-flow"
             fitView
+            connectOnClick={true} // デフォルトはtrue
         />
             <style jsx global>{Style}</style>
         </div>
