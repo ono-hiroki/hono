@@ -1,3 +1,4 @@
+// Validation
 import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge, Handle, Position, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -11,7 +12,10 @@ const initialNodes = [
     {id: 'C', type: 'customnode', position: {x: 250, y: 300}},
 ];
 
-const isValidConnection = (connection: { target: string; }) => connection.target === 'B';
+const isValidConnection = (connection: { target: string; }) => (
+    // console.log('isValidConnection', connection),
+    connection.target === 'A'
+);  // idに対しての条件
 // @ts-ignore
 const onConnectStart = (_, {nodeId, handleType}) =>
     console.log('on connect start', {nodeId, handleType});
@@ -75,7 +79,7 @@ export default HorizontalFlow;
 // Validation
 
 const Style= `
-    .validationflow .react-flow__node {
+  .validationflow .react-flow__node {
   width: 150px;
   border-radius: 5px;
   padding: 10px;
