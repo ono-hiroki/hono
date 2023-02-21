@@ -1,3 +1,4 @@
+// DragAndDrop.tsx
 import React, { useState, useRef, useCallback } from 'react';
 import ReactFlow, {
     ReactFlowProvider,
@@ -42,10 +43,12 @@ const DnDFlow = () => {
 
     const onDrop = useCallback(
         (event: { preventDefault: () => void; dataTransfer: { getData: (arg0: string) => any; }; clientX: number; clientY: number; }) => {
-            event.preventDefault();
+            event.preventDefault(); // preventDefaultは、デフォルトのイベントをキャンセルするためのメソッドです。
 
             // @ts-ignore
             const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
+            // getBoundingClientRect()は、要素の大きさと位置を示すDOMRectオブジェクトを返します。
+
             const type = event.dataTransfer.getData('application/reactflow');
 
             // check if the dropped element is valid
@@ -53,6 +56,9 @@ const DnDFlow = () => {
                 return;
             }
 
+            console.log(event.clientX,'-' ,reactFlowBounds.left,'event.clientX - reactFlowBounds.left')
+            console.log(reactFlowBounds)
+            // reactFlowBounds.leftは、要素の左端からの距離を示す数値です。
             // @ts-ignore
             const position = reactFlowInstance.project({
                 x: event.clientX - reactFlowBounds.left,
@@ -82,7 +88,7 @@ const DnDFlow = () => {
                         onConnect={onConnect}
                         // @ts-ignore
                         onInit={setReactFlowInstance}
-                        onDrop={onDrop}
+                        onDrop={onDrop} // onDropは、なにかをドロップしたときに呼ばれる
                         onDragOver={onDragOver}
                         fitView
                     >

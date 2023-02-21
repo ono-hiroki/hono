@@ -3,13 +3,13 @@ import React from 'react';
 // eslint-disable-next-line react/display-name
 export default () => {
     const onDragStart = (event, nodeType) => {
-        event.dataTransfer.setData('application/reactflow', nodeType);
+        event.dataTransfer.setData('application/reactflow', nodeType); // nodeTypeをdataTransferに保存
         event.dataTransfer.effectAllowed = 'move';
     };
 
     return (
         <aside>
-            <div className="description">You can drag these nodes to the pane on the right.</div>
+            <div className='description'>これらのノードを右側のペインにドラッグすることができます</div>
             <div className="dndnode input" onDragStart={(event) => onDragStart(event, 'input')} draggable>
                 Input Node
             </div>
