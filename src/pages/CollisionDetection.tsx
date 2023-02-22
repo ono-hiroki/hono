@@ -19,9 +19,7 @@ const CollisionDetectionFlow = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
     const onNodeDragStart = (evt: any, node: null) => {
-        console.log('drag start', dragRef.current);
         dragRef.current = node;
-        console.log('drag start', dragRef.current)
     };
 
     const onNodeDrag = (evt: any, node: { position: { x: number; y: number; }; width: number; height: number; id: string; }) => {
@@ -45,7 +43,7 @@ const CollisionDetectionFlow = () => {
         // console.log('targetNode', targetNode)
 
         // @ts-ignore
-        setTarget(targetNode);
+        setTarget(targetNode); // これでuseEffectが発火
     };
 
     const onNodeDragStop = (evt: any, node: { data: { label: any; }; id: string; }) => {
@@ -54,6 +52,8 @@ const CollisionDetectionFlow = () => {
         const nodeColor = node.data.label;
         // @ts-ignore
         const targetColor = target?.data.label;
+        console.log('nodeColor', nodeColor)
+        console.log('targetColor', targetColor)
 
         setNodes((nodes) =>
             nodes.map((n) => {
@@ -68,13 +68,13 @@ const CollisionDetectionFlow = () => {
             })
         );
 
-        setTarget(null);
+        setTarget(null);  // これでuseEffectが発火
         dragRef.current = null;
     };
 
     useEffect(() => {
-        // whenever the target changes, we swap the colors temporarily
-        // this is just a placeholder, implement your own logic here
+        // ターゲットが変わるたびに、一時的に色を入れ替えます。
+        // これは単なるプレースホルダであり、ここに独自のロジックを実装する。
         setNodes((nodes) =>
             nodes.map((node) => {
                 // @ts-ignore
