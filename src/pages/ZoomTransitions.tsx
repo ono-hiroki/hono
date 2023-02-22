@@ -1,3 +1,4 @@
+// ZoomTransitions.tsx
 import React, { useCallback } from 'react';
 import ReactFlow, {
     addEdge,
@@ -11,7 +12,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import {useGetWindowSize} from "../hooks/useGetWindowSize";
+import {useGetWindowSize} from "src/hooks/useGetWindowSize";
 
 const initialNodes = [
     {
@@ -40,7 +41,7 @@ const SmoothTransition = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const onConnect = useCallback((params: Edge<any> | Connection) => setEdges((eds) => addEdge(params, eds)), []);
 
-    const { setViewport, zoomIn, zoomOut } = useReactFlow();
+    const { setViewport, zoomIn, zoomOut } = useReactFlow(); // ここ
 
     const handleTransform = useCallback(() => {
         setViewport({ x: 0, y: 0, zoom: 1 }, { duration: 800 });
