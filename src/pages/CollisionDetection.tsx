@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
-import ReactFlow, { useNodesState, useEdgesState } from 'reactflow';
+// CollisionDetection.tsx
+import React, {useEffect, useState, useRef} from 'react';
+import ReactFlow, {useNodesState, useEdgesState, Background} from 'reactflow';
 
-import { nodes as initialNodes, edges as initialEdges } from 'src/components/CollisionDetection/initial-elements';
+import {nodes as initialNodes, edges as initialEdges} from 'src/components/CollisionDetection/initial-elements';
 
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../hooks/useGetWindowSize";
@@ -18,25 +19,30 @@ const CollisionDetectionFlow = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
     const onNodeDragStart = (evt: any, node: null) => {
+        console.log('drag start', dragRef.current);
         dragRef.current = node;
+        console.log('drag start', dragRef.current)
     };
 
     const onNodeDrag = (evt: any, node: { position: { x: number; y: number; }; width: number; height: number; id: string; }) => {
         // calculate the center point of the node from position and dimensions
-        const centerX = node.position.x + node.width / 2;
+        const centerX = node.position.x + node.width / 2; // 選択したノードの中心点を計算しています
         const centerY = node.position.y + node.height / 2;
+        // console.dir(node, 'node')
 
         // find a node where the center point is inside
+        // ポイントが内側にあるノードを見つけます
         const targetNode = nodes.find(
             (n) =>
-                centerX > n.position.x &&
+                centerX > n.position.x && // 選択したノードの中心点 > ノードの左上のx座標
                 // @ts-ignore
-                centerX < n.position.x + n.width &&
-                centerY > n.position.y &&
+                centerX < n.position.x + n.width && // 選択したノードの中心点 < ノードの右下のx座標
+                centerY > n.position.y && // 選択したノードの中心点 > ノードの左上のy座標
                 // @ts-ignore
-                centerY < n.position.y + n.height &&
+                centerY < n.position.y + n.height && // 選択したノードの中心点 < ノードの右下のy座標
                 n.id !== node.id // this is needed, otherwise we would always find the dragged node
         );
+        // console.log('targetNode', targetNode)
 
         // @ts-ignore
         setTarget(targetNode);
@@ -44,6 +50,7 @@ const CollisionDetectionFlow = () => {
 
     const onNodeDragStop = (evt: any, node: { data: { label: any; }; id: string; }) => {
         // on drag stop, we swap the colors of the nodes
+        // わたしはここで色を入れ替えています
         const nodeColor = node.data.label;
         // @ts-ignore
         const targetColor = target?.data.label;
@@ -52,10 +59,10 @@ const CollisionDetectionFlow = () => {
             nodes.map((n) => {
                 // @ts-ignore
                 if (n.id === target?.id) {
-                    n.data = { ...n.data, color: nodeColor, label: nodeColor };
+                    n.data = {...n.data, color: nodeColor, label: nodeColor};
                 }
                 if (n.id === node.id && target) {
-                    n.data = { ...n.data, color: targetColor, label: targetColor };
+                    n.data = {...n.data, color: targetColor, label: targetColor};
                 }
                 return n;
             })
@@ -73,18 +80,18 @@ const CollisionDetectionFlow = () => {
                 // @ts-ignore
                 if (node.id === target?.id) {
                     // @ts-ignore
-                    node.style = { ...node.style, backgroundColor: dragRef.current?.data.color };
+                    node.style = {...node.style, backgroundColor: dragRef.current?.data.color};
                     // @ts-ignore
-                    node.data = { ...node.data, label: dragRef.current?.data.color };
+                    node.data = {...node.data, label: dragRef.current?.data.color};
                     // @ts-ignore
                 } else if (node.id === dragRef.current?.id && target) {
                     // @ts-ignore
-                    node.style = { ...node.style, backgroundColor: target.data.color };
+                    node.style = {...node.style, backgroundColor: target.data.color};
                     // @ts-ignore
-                    node.data = { ...node.data, label: target.data.color };
+                    node.data = {...node.data, label: target.data.color};
                 } else {
-                    node.style = { ...node.style, backgroundColor: node.data.color };
-                    node.data = { ...node.data, label: node.data.color };
+                    node.style = {...node.style, backgroundColor: node.data.color};
+                    node.data = {...node.data, label: node.data.color};
                 }
                 return node;
             })
@@ -93,21 +100,24 @@ const CollisionDetectionFlow = () => {
 
     return (
         <div style={{width: windowWidth, height: windowHeight}}>
-        <div className="container">
-            <div className="instructions">Drop any node on top of another node to swap their colors</div>
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                fitView
-                // @ts-ignore
-                onNodeDragStart={onNodeDragStart}
-                // @ts-ignore
-                onNodeDrag={onNodeDrag}
-                onNodeDragStop={onNodeDragStop}
-            />
-        </div>
+            <div className="container">
+                <div className="instructions">Drop any node on top of another node to swap their colors</div>
+                <ReactFlow
+                    nodes={nodes}
+                    edges={edges}
+                    onNodesChange={onNodesChange}
+                    onEdgesChange={onEdgesChange}
+                    fitView
+                    // @ts-ignore
+                    onNodeDragStart={onNodeDragStart}
+                    // @ts-ignore
+                    onNodeDrag={onNodeDrag}
+                    onNodeDragStop={onNodeDragStop}
+
+                >
+                    <Background color="#000" gap={40}/>
+                </ReactFlow>
+            </div>
             <style jsx global>{Style}</style>
         </div>
     );
