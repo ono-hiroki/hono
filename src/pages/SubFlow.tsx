@@ -1,3 +1,4 @@
+// SubFlow.tsx
 import {useCallback} from 'react';
 import ReactFlow, {
     addEdge,
@@ -62,7 +63,7 @@ const initialNodes = [
         data: {label: 'Node B.A.1'},
         position: {x: 20, y: 40},
         className: 'light',
-        parentNode: '4b',
+        parentNode: '4b', // 親の入れ子ができる
     },
     {
         id: '4b2',
