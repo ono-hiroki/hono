@@ -1,3 +1,4 @@
+// ContextualZoom
 import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Connection, Edge} from 'reactflow';
 
@@ -16,20 +17,20 @@ const initialNodes = [
         id: '1',
         type: 'zoom',
         data: {
-            content: <>Zoom to toggle content and placeholder</>,
+            content: <>Zoom to toggle content and placeholder<br/> トグルコンテンツとプレースホルダーをズーム</>,
         },
         position: {x: 0, y: 50},
     },
     {
         id: '2',
         type: 'zoom',
-        data: {content: <>this is a node with some lines of text in it.</>},
+        data: {content: <>this is a node with some lines of text in it. <br/>これはテキストのいくつかの行を持つノードです。</>},
         position: {x: 300, y: 50},
     },
     {
         id: '3',
         type: 'zoom',
-        data: {content: <>this is another node with some more text.</>},
+        data: {content: <>this is another node with some more text.<br/>これはもう少しテキストがある別のノードです。</>},
         position: {x: 650, y: 50},
     },
 ];
