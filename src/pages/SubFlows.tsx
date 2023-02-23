@@ -1,3 +1,4 @@
+// SubFlows.tsx
 import {useCallback, useState} from 'react';
 import ReactFlow, {addEdge, applyEdgeChanges, applyNodeChanges, Background, Connection, Edge,
     EdgeChange,
@@ -13,7 +14,7 @@ const initialNodes = [
         type: 'group',
         position: { x: 0, y: 0 },
         style: {
-            width: 170,
+            width: 200,
             height: 140,
         },
     },
@@ -23,7 +24,8 @@ const initialNodes = [
         data: { label: 'Child Node 1' },
         position: { x: 10, y: 10 },
         parentNode: 'A',
-        extent: 'parent',
+        extent: 'parent', // extent: 'parent' は、親ノードの中から出られないようにする
+        draggable: false, // draggable: false は、ノードをドラッグできないようにする
     },
     {
         id: 'A-2',
@@ -113,7 +115,7 @@ function Flow() {
     );
     const onConnect = useCallback(
         // @ts-ignore
-        (connection: Edge<any> | Connection) => setEdges((eds) => addEdge(connection, eds)),
+        (connection: Edge | Connection) => setEdges((eds) => addEdge(connection, eds)),
         [setEdges]
     );
     const {height: windowHeight, width: windowWidth} = useGetWindowSize()
@@ -129,7 +131,7 @@ function Flow() {
                 onConnect={onConnect}
                 fitView
                 style={rfStyle}
-                attributionPosition="top-right"
+                attributionPosition="top-right" // attributionPositionは、ライセンス表示の位置を指定する
             >
                 <Background/>
             </ReactFlow>
