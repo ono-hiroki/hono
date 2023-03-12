@@ -1,7 +1,4 @@
-import Head from 'next/head'
-import {Footer} from "src/components/Footer"
-import {Main} from "src/components/Main"
-import {Header} from "src/components/Header"
+import Head from 'next/head';
 import styled from 'styled-components';
 
 const Container = styled.div`
