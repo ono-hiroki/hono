@@ -14,11 +14,12 @@ const Section = styled.section<Props>`
 `;
 
 const Ugomemo312 = (props: any) => {
-    const {ref, inView} = useInView({
+    const prop1 = useInView({
         threshold: 0,
     });
-    console.log(ref);
-    console.log(inView);
+    const prop2 = useInView({
+        threshold: 0,
+    })
 
     return (
         <>
@@ -34,15 +35,15 @@ const Ugomemo312 = (props: any) => {
                 <p className="TextRandomAnime">スクロール後、テキストがバラバラに出現しますテキストがバラバラに出現しますテキストがバラバラに出現します</p>
 
             </div>
-            <Section ref={ref} inView={inView}>
-                <h2>{`Header inside viewport ${inView}.`}</h2>
+            <Section ref={prop1.ref} inView={prop1.inView}>
+                <h2>{`Header inside viewport ${prop1.inView}.`}</h2>
                 <p>スクロールとするとヌルッと出てくるよ！</p>
             </Section>
             <br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-            <Section inView={inView}>
-                <h2>{`Header inside viewport ${inView}.`}</h2>
+            <Section ref={prop2.ref} inView={prop2.inView}>
+                <h2>{`Header inside viewport ${prop2.inView}.`}</h2>
                 <p>スクロールとするとヌルッと出てくるよ！</p>
             </Section>
 
