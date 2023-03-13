@@ -8,12 +8,9 @@ interface Props {
 }
 
 const Section = styled.div<Props>`
-  // transition: all 1s ease;
-  // transform: ${(props) => props.inVieww ? "translateY(0)" : "translateY(50px)"};
-  // opacity: ${(props) => (props.inVieww ? 1 : 0.5)};
 `;
 
-const Ugomemo312 = (props: any) => {
+const Ugomemo81 = (props: any) => {
     const prop1 = useInView({
         threshold: 0,
     });
@@ -53,41 +50,48 @@ const Ugomemo312 = (props: any) => {
                 >
                     <div
                         // @ts-ignore
-                        className={['TextRandomAnime', textRandomAnime1.inView && 'appearRandomtext']}
+                        className={['TextRandomAnime ', textRandomAnime1.inView && ' appearRandomtext']}
                         ref={elm}
-                    >aaテキストがバラバラに出現しますテキストがバラバラに出現しますテキストがバラバラに出現します</div>
+                    >テキストがバラバラに出現しますテキストがバラバラに出現しますテキストがバラバラに出現します</div>
                 </Section>
 
 
                 <br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓<br/>↓
 
-                <p className="TextRandomAnime">スクロール後、テキストがバラバラに出現しますテキストがバラバラに出現しますテキストがバラバラに出現します</p>
-
+                {/*<Section*/}
+                {/*    ref={prop1.ref}*/}
+                {/*    inVieww={prop1.inView}*/}
+                {/*>*/}
+                {/*    <div*/}
+                {/*        // @ts-ignore*/}
+                {/*        className={['TextRandomAnime ', prop1.inView && ' appearRandomtext']}*/}
+                {/*        ref={elm}*/}
+                {/*    >テキストがバラバラに出現しますテキストがバラバラに出現しますテキストがバラバラに出現します</div>*/}
+                {/*</Section>*/}
             </div>
 
-            <Section
-                ref={prop1.ref}
-                inVieww={prop1.inView}
-            >
-                <h2>{`Header inside viewport ${prop1.inView}.`}</h2>
-                <p>
-                    スクロールとするとヌルッと出てくるよ?！
-                </p>
-            </Section>
+            {/*<Section*/}
+            {/*    ref={prop1.ref}*/}
+            {/*    inVieww={prop1.inView}*/}
+            {/*>*/}
+            {/*    <h2>{`Header inside viewport ${prop1.inView}.`}</h2>*/}
+            {/*    <p>*/}
+            {/*        スクロールとするとヌルッと出てくるよ?！*/}
+            {/*    </p>*/}
+            {/*</Section>*/}
             <br/><br/><br/><br/><br/>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <style jsx global>{Style}</style>
         </>
     )
 }
-
-export default Ugomemo312;
+export default Ugomemo81;
 
 const Style = `@charset "utf-8";
 @charset "utf-8";
 
 /*========= レイアウトのためのCSS ===============*/
-p{
+div{
 text-align: center;
 padding:50px 0;
 font-size:1.3rem;
