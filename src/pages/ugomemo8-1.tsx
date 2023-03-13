@@ -52,6 +52,7 @@ const Ugomemo312 = (props: any) => {
                     inVieww={textRandomAnime1.inView}
                 >
                     <div
+                        // @ts-ignore
                         className={['TextRandomAnime', textRandomAnime1.inView && 'appearRandomtext']}
                         ref={elm}
                     >aaテキストがバラバラに出現しますテキストがバラバラに出現しますテキストがバラバラに出現します</div>
