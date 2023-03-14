@@ -8,13 +8,12 @@ const Ugomemo510 = (props: any) => {
     const waveCanvas = useRef(null);
 
     // @ts-ignore
-    let unit = 100, canvasList: (HTMLElement | null)[], info = {
-        seconds: any,
-        t: any
-    }, colorList: string[][];
+    let unit = 100, canvasList: (HTMLElement | null)[], info = {}, colorList: string[][];
 
     const init = () => {
+        // @ts-ignore
         info.seconds = 0;
+        // @ts-ignore
         info.t = 0;
         canvasList = [];
         colorList = [];
@@ -111,7 +110,7 @@ const Ugomemo510 = (props: any) => {
             </Head>
 
             <div id="wrapper">
-                <p>※参照　<a href="https://jsfiddle.net/39we73t1/" target="_blank">https://jsfiddle.net/39we73t1/</a></p>
+                <p>※参照　<a href="https://jsfiddle.net/39we73t1/" target="_blank" rel="noreferrer" >https://jsfiddle.net/39we73t1/</a></p>
                 <canvas id="waveCanvas" ref={waveCanvas}/>
             </div>
 
