@@ -73,8 +73,11 @@ const Ugomemo81 = (props: any) => {
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
             </Head>
 
+            {/*@ts-ignore*/}
             <p ref={useSlideAnimeLeftRight.ref} css={p}>
+                {/*@ts-ignore*/}
 	            <span css={[slideIn, leftAnime, useSlideAnimeLeftRight.inView && slideAnimeLeftRight]}>
+                    {/*@ts-ignore*/}
 	                <span css={[slideIn_inner, useSlideAnimeLeftRight.inView && slideAnimeRightLeft]}>
                         左から右へテキストが流れます。左から右へテキストが流れます。
 	                </span>
