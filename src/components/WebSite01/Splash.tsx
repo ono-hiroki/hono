@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from "react";
-import styled from "styled-components";
+import {useInView} from "react-intersection-observer";
+import {css, keyframes} from "@emotion/react";
 
-const Splash = styled.div`
+const splash = css`
 position: fixed;
 width: 100%;
 height: 100%;
@@ -9,77 +10,103 @@ background:#e2a2b1;
 z-index: 9999999;
 text-align:center;
 color:#fff;
-`;
+`
 
-const SplashLogo = styled.div`
-p {
+const splashLogo = css`
     font-size:1.8rem;
     font-weight: normal;
     white-space: nowrap;
-}
-
+font-family:'Parisienne', cursive;
 position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-font-family:'Parisienne', cursive;
-`;
-
-const SplashLogoPinSpan = styled.span`
-overflow: hidden;
-display: inline-block;
-padding: 0 10px;/*英語がはみ出るので見えるように余白追記*/
-
-animation-name: slideText-100;
-animation-duration:0.8s;
-animation-fill-mode:forwards;
-// opacity: 0;
 `
 
-const SplashLogoPinSpanInner = styled.span`
-display: inline-block;
-animation-name: slideText100;
-animation-duration:0.8s;
-animation-fill-mode:forwards;
-// opacity: 0;
+const leftAnime = css`
+    opacity: 0;
+`
+const slideIn = css`
+    overflow: hidden;
+    display: inline-block;
+`
+const slideIn_inner = css`
+    display: inline-block;
+`
+const slideTextX100 = keyframes`
+  from {
+    transform: translateX(-100%); /*要素を左の枠外に移動*/
+        opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+`
+const slideAnimeLeftRight = css`
+    animation-name:${slideTextX100};
+    animation-duration:0.8s;
+    animation-fill-mode:forwards;
+    opacity: 0;
+`
+const slideTextX_100 = keyframes`
+  from {
+    transform: translateX(100%);/*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+`
+const slideAnimeRightLeft = css`
+    animation-name:${slideTextX_100};
+    animation-duration:0.8s;
+    animation-fill-mode:forwards;
+    opacity: 0;
 `
 
 const SplashTag = (props: { text: string; }) => {
-    const [fadeProp, setFadeProp] = useState({fade: 'fade-in'});
-    const leftAnime = useRef(null);
-    const leftAnimeInner = useRef(null);
-
-    // useEffect(() => {
-    //     const timeout = setInterval(() => {
-    //         if (fadeProp.fade === 'fade-in') {
-    //             setFadeProp({fade: 'fade-out'})
-    //         }
-    //     }, 1400);
-    //     return () => {
-    //         clearInterval(timeout)
-    //     };
-    //
-    // }, [fadeProp.fade]);
+    const [isTimePassed, setIsTimePassed] = useState(false);
 
     useEffect(() => {
-        console.log('leftAnime', leftAnime)
-        console.log('leftAnimeInner', leftAnimeInner)
-        // @ts-ignore
-        let elemPos = leftAnime.current?.offsetTop;
+        setTimeout(() => {
+            setIsTimePassed(true)
+        }, 1400);
     });
+
+    const [ref,inView] = useInView({
+        threshold: 0,
+    });
+
 
 
     return (
         <>
-            <Splash className={fadeProp.fade}>
-                <SplashLogo id='splash-logo'>
+            <div id="splash" css={splash} ref={ref}>
+                <div id="splash-logo" css={splashLogo}>
                     <p>
-                        <SplashLogoPinSpan ref={leftAnime}>
-                            <SplashLogoPinSpanInner ref={leftAnimeInner}>Beautiful Days</SplashLogoPinSpanInner>
-                        </SplashLogoPinSpan>
+                        <span className="slide-in slideAnimeLeftRight" css={[slideIn, leftAnime, slideAnimeLeftRight]}>
+                            <span className="slide-in_inner slideAnimeRightLeft" css={[slideIn_inner, slideAnimeRightLeft]}>Beautiful Days {inView}</span>
+                        </span>
                     </p>
-                </SplashLogo>
-            </Splash>
+                </div>
+            </div>
+
+            <div className="splashbg1"/>
+            <div className="splashbg2"/>
+
+            {/*<Splash className={fadeProp.fade}>*/}
+            {/*    <SplashLogo id='splash-logo'>*/}
+            {/*        <p>*/}
+            {/*            <SplashLogoPinSpan ref={leftAnime}>*/}
+            {/*                <SplashLogoPinSpanInner ref={leftAnimeInner}>Beautiful Days</SplashLogoPinSpanInner>*/}
+            {/*            </SplashLogoPinSpan>*/}
+            {/*        </p>*/}
+            {/*    </SplashLogo>*/}
+            {/*</Splash>*/}
         </>
     )
 }
