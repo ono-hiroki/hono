@@ -7,79 +7,91 @@ import {any, number} from "prop-types";
 const Ugomemo510 = (props: any) => {
     const waveCanvas = useRef(null);
 
-
-    let unit = 100, canvasList, info = {}, colorList;
+    // @ts-ignore
+    let unit = 100, canvasList: (HTMLElement | null)[], info = {
+        seconds: any,
+        t: any
+    }, colorList: string[][];
 
     const init = () => {
-        // @ts-ignore
-        info.seconds = 0; info.t = 0;
+        info.seconds = 0;
+        info.t = 0;
         canvasList = [];
         colorList = [];
-        // @ts-ignore
-        canvasList = [document.getElementById("waveCanvas")];
-        console.log(canvasList)
-        colorList = ['#43c0e4'];
-        // @ts-ignore
-        for (let i = 0; i < canvasList.length; i++) {
-            // @ts-ignore
-            const canvas = canvasList[i];
+        // canvas1個めの色指定
+        canvasList.push(document.getElementById("waveCanvas"));
+        colorList.push(['#43c0e4']);
+
+        // 各キャンバスの初期化
+        for (let canvasIndex in canvasList) {
+            let canvas = canvasList[canvasIndex];
             // @ts-ignore
             canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
             // @ts-ignore
             canvas.height = 200;//波の高さ
             // @ts-ignore
             canvas.contextCache = canvas.getContext("2d");
-
         }
-
+        // 共通の更新処理呼び出し
         update();
     }
 
     const update = () => {
-        for (let i = 0; i < canvasList.length; i++) {
-            let canvas = canvasList[i];
-
-            draw(canvas, colorList[i]);
+        for (let canvasIndex in canvasList) {
+            let canvas = canvasList[canvasIndex];
+            // 各キャンバスの描画
+            draw(canvas, colorList[canvasIndex]);
         }
-
-        info.seconds = info.seconds + 0.14;
+        // @ts-ignore
+        info.seconds = info.seconds + .014;
+        // @ts-ignore
         info.t = info.seconds * Math.PI;
-
-        setTimeout(update,35);
+        // 自身の再起呼び出し
+        setTimeout(update, 35);
     }
 
-    const draw = (canvas: { contexCache: any; width: any; height: any; }, color: any) => {
-        let context = canvas.contexCache;
-        console.log(context);
-        // context.clearRect(0, 0, canvas.width, canvas.height);
+    const draw = (canvas: HTMLElement | null, color: any) => {
+
+        // @ts-ignore
+        let context = canvas.contextCache;
+        // @ts-ignore
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //波を描画 drawWave(canvas, color[数字（波の数を0から数えて指定）], 透過, 波の幅のzoom,波の開始位置の遅れ )
         drawWave(canvas, color[0], 1, 3, 0);
     }
 
-    const drawWave = (canvas, color, alpha, zoom, delay) => {
-
-        let context = canvas.contexCache;
-        // TypeError: Cannot set properties of undefinedの修正すると以下
-        context.fillStyle = color;
+    const drawWave = (canvas: HTMLElement | null , color: any, alpha: number, zoom: number, delay: number) => {
+        // @ts-ignore
+        let context = canvas.contextCache;
+        context.fillStyle = color;//塗りの色
         context.globalAlpha = alpha;
-        context.beginPath();
-        drawSine(canvas,info.t / 0.5, zoom, delay);
+        context.beginPath(); //パスの開始
+        // @ts-ignore
+        drawSine(canvas, info.t / 0.5, zoom, delay);
+        // @ts-ignore
         context.lineTo(canvas.width + 10, canvas.height);
+        // @ts-ignore
         context.lineTo(0, canvas.height);
-        context.closePath();
+        context.closePath()
         context.fill();
     }
 
-    const drawSine = (canvas, t, zoom, delay) => {
+    const drawSine = (canvas: HTMLElement | null, t: number, zoom: number, delay: number) => {
+        // @ts-ignore
         let xAxis = Math.floor(canvas.height / 2);
         let yAxis = 0;
-        let context = canvas.contexCache;
+        // @ts-ignore
+        let context = canvas.contextCache;
         let x = t;
         let y = Math.sin(x) / zoom;
-        context.moveTo(yAxis, unit * y + xAxis);
+        context.moveTo(yAxis, unit * y + xAxis); //スタート位置にパスを置く
 
+
+        // @ts-ignore
         for (let i = yAxis; i <= canvas.width + 10; i += 10) {
             x = t + (-yAxis + i) / unit / zoom;
-            y = Math.sin(x - delay) / zoom;
+            y = Math.sin(x - delay) / 3;
             context.lineTo(i, unit * y + xAxis);
         }
     }
