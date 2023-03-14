@@ -133,7 +133,7 @@ const splashbg2Appear = css`
     background-color:#e2a2b1;/*伸びる背景色の設定*/
 `
 
-const SplashTag = (props: { text: string; }) => {
+const SplashTag = () => {
     const [isTimePassed, setIsTimePassed] = useState(false);
     useEffect(() => {
         setTimeout(() => {
@@ -147,19 +147,18 @@ const SplashTag = (props: { text: string; }) => {
 
     return (
         <>
-            <div id="splash" css={[splash, isTimePassed && hiddenSplash]} ref={ref}>
-                <div id="splash-logo" css={[splashLogo]}>
+            <div css={[splash, isTimePassed && hiddenSplash]} ref={ref}>
+                <div css={[splashLogo]}>
                     <p>
-                        <span className="slide-in slideAnimeLeftRight" css={[slideIn, leftAnime, slideAnimeLeftRight]}>
-                            <span className="slide-in_inner slideAnimeRightLeft"
-                                  css={[slideIn_inner, slideAnimeRightLeft]}>Beautiful Days {inView}</span>
+                        <span css={[slideIn, leftAnime, slideAnimeLeftRight]}>
+                            <span css={[slideIn_inner, slideAnimeRightLeft]}>Beautiful Days</span>
                         </span>
                     </p>
                 </div>
             </div>
 
-            <div className="splashbg1" css={[isTimePassed && splashbg1Appear]}/>
-            <div className="splashbg2" css={[isTimePassed && splashbg2Appear]}/>
+            <div css={[isTimePassed && splashbg1Appear]}/>
+            <div css={[isTimePassed && splashbg2Appear]}/>
         </>
     )
 }
