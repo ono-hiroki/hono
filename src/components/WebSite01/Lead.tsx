@@ -182,6 +182,118 @@ const leadArea = css`
 }
 `
 
+const leadBtn = css`
+a {
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+    width: 10%;
+    position: relative;
+    top: 240px;
+    
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        top: 50px;
+        text-align: center;
+        
+        a {
+        -ms-writing-mode: lr-tb;
+        -webkit-writing-mode: horizontal-tb;
+        writing-mode: horizontal-tb;
+        }
+    }
+`
+
+const btn04 = css`
+    /*線の基点とするためrelativeを指定*/
+    position: relative;
+    padding: 20px 15px;
+    /*ボタンの形状*/
+    display:inline-block;
+    color:#333;
+    border:1px solid #ccc;
+    text-decoration: none;
+    outline: none;
+    /*はみ出す背景色を隠す*/
+    overflow: hidden;
+    
+    &:hover {
+    color:#fff;
+    border-color: transparent;
+    /*色の変化を遅らせる*/
+    transition-delay: .6s;
+    
+    span{
+    display: block;
+    z-index: 2;
+    }
+   
+      
+    @media screen and (max-width: 768px) {
+    width: 250px;
+    padding: 10px 30px;
+    }
+}
+`
+const borderTop = css`
+/*線の設定*/
+span::before,
+span::after {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    width:1px;
+    height: 0;
+    /*線の形状*/
+    background: #e2a2b1;
+    /*アニメーションの設定*/
+    transition: all .3s;
+}
+
+/*左線*/
+span::before {
+    left:0;
+    top:0;
+}
+
+/*右線*/
+span::after {
+    right:0;
+    top:0;
+}
+
+/*hoverをすると線が伸びる*/
+&:hover span::before,
+&:hover span::after {
+    height: 100%;
+}
+
+/*背景の設定*/
+&::before{
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    left: 0;
+    top:0;
+    z-index: -1;
+    /*背景の形状*/
+    width: 100%;
+    height: 0;
+    background:#e2a2b1;
+    /*アニメーションの設定*/
+    transition: all .3s;
+}
+
+/*hoverをすると背景が伸びる*/
+&:hover::before{
+    height: 100%;
+    /*0.4秒遅れてアニメーション*/
+    transition-delay: .4s;
+}
+`
+
 //TODO leadBtnのアニメーションを追加する
 
 const Header = () => {
@@ -196,7 +308,7 @@ const Header = () => {
             <div css={[leadArea, inView && fadeIn]} ref={ref} >
                 <h2>白金台にある<br/>癒しの<br/>プライベート空間</h2>
                 <p>エステサロン<br/>ビューティフルデイズは、<br/>がんばるあなたが<br/>ちょっと疲れた時に<br/>立ち寄れる<br/>ほっとする時間を<br/>つくります。</p>
-                <div className="lead-btn"><a href="#" className="btn04 bordertop"><span>お店のご紹介</span></a></div>
+                <div className="lead-btn" css={leadBtn}><a href="#" className="btn04 bordertop" css={[btn04, borderTop]}><span>お店のご紹介</span></a></div>
             </div>
         </article>
     )
