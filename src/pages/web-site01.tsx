@@ -30,11 +30,7 @@ const WebSite01 = (props: any) => {
             <HeadTag/>
             <SplashTag isTimePassed={isTimePassed}/>
             <div id="wrapper">
-                <Header
-                    isSecondTimePassed={isSecondTimePassed}
-                />
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
+                <Header isSecondTimePassed={isSecondTimePassed}/>
                 {/*<div class="openbtn"><span></span><span></span><span></span></div>*/}
                 {/*<nav id="g-nav">*/}
                 {/*    <div id="g-nav-list">*/}

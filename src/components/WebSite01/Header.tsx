@@ -1,6 +1,13 @@
 import React, {useEffect, useRef, useState} from "react";
 import {css, keyframes} from "@emotion/react";
 
+const header = css`
+    position: relative;/*背景を設定するdivの基点とするためrelativeをかける*/
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+`
+
 const headerArea = css`
  font-family:'Parisienne', cursive;
     position: fixed;
@@ -53,11 +60,11 @@ font-family:'Parisienne', cursive;
 `
 
 const headerImg = css`
-  position: fixed;/*背景を固定するためfixedをかける*/
-  z-index: 1;/*#container,#footerよりも下に配置するために数値を小さくする*/
-    top: 0;/*topの位置がJSで変化*/
+  position: fixed;
+  z-index: 1;
+  top: 0;
   /*以下画面で背景画像を表示させるための指定*/
-    width: 100%;
+  width: 100%;
   height:100vh;
   background: url(/webSite1/main.jpg) no-repeat top center;/*背景画像の設定*/
   background-size:cover;
@@ -178,7 +185,7 @@ const Header = (props: Props) => {
     }
 
     return (
-        <header id="header">
+        <header css={header}>
             <div css={[headerArea]}>
                 <p className="glowAnime" css={[headerAreaP, props.isSecondTimePassed && grow]}
                    ref={headerSubTitle}>白金台にある<br/>癒しのエステサロン</p>
