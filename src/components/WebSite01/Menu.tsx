@@ -165,7 +165,8 @@ const Menu = () => {
                 <div className="menu-btn fadeInTrigger"><a href="#"
                                                            className="btn04 bordertop"><span>メニュー一覧を見る</span></a></div>
 
-                <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"/>
+
+
             </section>
         </>
     )
