@@ -294,21 +294,19 @@ span::after {
 }
 `
 
-//TODO leadBtnのアニメーションを追加する
-
 const Header = () => {
     const {ref, inView} = useInView({
         threshold: 0,
     });
-    console.log(inView)
 
     return (
         <article css={[lead, inner, zoomOutTrigger, inView && zoomOut]}>
             <div css={[leadImg, inView && fadeIn]}/>
-            <div css={[leadArea, inView && fadeIn]} ref={ref} >
+            <div css={[leadArea, inView && fadeIn]} ref={ref}>
                 <h2>白金台にある<br/>癒しの<br/>プライベート空間</h2>
-                <p>エステサロン<br/>ビューティフルデイズは、<br/>がんばるあなたが<br/>ちょっと疲れた時に<br/>立ち寄れる<br/>ほっとする時間を<br/>つくります。</p>
-                <div className="lead-btn" css={leadBtn}><a href="#" className="btn04 bordertop" css={[btn04, borderTop]}><span>お店のご紹介</span></a></div>
+                <p>エステサロン<br/>ビューティフルデイズは、<br/>がんばるあなたが<br/>ちょっと疲れた時に<br/>
+                    立ち寄れる<br/>ほっとする時間を<br/>つくります。</p>
+                <div css={leadBtn}><a href="#" css={[btn04, borderTop]}><span>お店のご紹介</span></a></div>
             </div>
         </article>
     )
