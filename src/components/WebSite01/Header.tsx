@@ -1,10 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import {useInView} from "react-intersection-observer";
 import {css, keyframes} from "@emotion/react";
-import Image from 'next/image'
-//TODO 文字のアニメーションを追加する
-//TODO scrollのアニメーションを追加する
-//TODO 画像のアニメーションを追加する
 
 const headerArea = css`
  font-family:'Parisienne', cursive;
@@ -132,27 +127,66 @@ span{
 }
 `
 
-const Header = () => {
-    const [isTimePassed, setIsTimePassed] = useState(false);
-    useEffect(() => {
-        setTimeout(() => {
-            setIsTimePassed(true)
-        }, 1500);
-    });
+const grlowAnimeOn = keyframes`
+    0% { opacity:0; text-shadow: 0 0 0 #fff,0 0 0 #fff;}
+    50% { opacity:1;text-shadow: 0 0 10px #fff,0 0 15px #fff; }
+    100% { opacity:1; text-shadow: 0 0 0 #fff,0 0 0 #fff;}
+`
+const grow = css`
+    span{ animation:${grlowAnimeOn} 1s ease-out forwards; }
+`
 
-    const [ref, inView] = useInView({
-        threshold: 0,
-    });
+type Props = {
+    isSecondTimePassed: boolean;
+}
+
+const spanEachCharacter = (elm: any) => {
+    const elmText = elm.textContent;
+    elm.textContent = "";
+    for (let i = 0; i < elmText.length; i++) {
+        const span = document.createElement("span");
+        span.textContent = elmText[i];
+        elm.appendChild(span);
+    }
+
+    // spanの数だけanimation-delayを設定
+    const spanList = elm.querySelectorAll("span");
+    for (let i = 0; i < spanList.length; i++) {
+        spanList[i].style.animationDelay = `${i * 0.1}s`;
+    }
+}
+
+const Header = (props: Props) => {
+    const headerSubTitle = useRef(null);
+    const headerTitle = useRef(null);
+    useEffect(() => {
+        spanEachCharacter(headerSubTitle.current)
+        spanEachCharacter(headerTitle.current)
+    }, []);
+
+    const [scrollY, setScrollY] = useState(0);
+    const handleScroll = () => {
+        setScrollY(window.pageYOffset);
+    }
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+    const headerImgStyle = {
+        transform: `scale(${1 + scrollY / 1000})`,
+        top: `-${scrollY}px`
+    }
 
     return (
         <header id="header">
-            <div css={[headerArea]} ref={ref}>
-                <p className="glowAnime" css={headerAreaP}>白金台にある<br/>癒しのエステサロン</p>
-                <h1 className="glowAnime" css={headerAreaH1}>Beautiful Days</h1>
+            <div css={[headerArea]}>
+                <p className="glowAnime" css={[headerAreaP, props.isSecondTimePassed && grow]}
+                   ref={headerSubTitle}>白金台にある<br/>癒しのエステサロン</p>
+                <h1 className="glowAnime" css={[headerAreaH1, props.isSecondTimePassed && grow]}
+                    ref={headerTitle}>Beautiful Days</h1>
             </div>
-
-            <div className="scrolldown2" css={scrollDown2} ><span>Scroll</span></div>
-            <div id="header-img" css={[headerImg]}/>
+            <div className="scrolldown2" css={scrollDown2}><span>Scroll</span></div>
+            <div id="header-img" css={[headerImg]} style={headerImgStyle}/>
         </header>
     )
 }

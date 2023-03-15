@@ -3,26 +3,37 @@ import React, {useEffect, useState} from "react";
 import {HeadTag} from "../components/WebSite01/Head";
 import SplashTag from "../components/WebSite01/Splash";
 import Header from "../components/WebSite01/Header";
+import {css, keyframes} from "@emotion/react";
+
+const main = css`
+    position: relative;/*#header-imgよりも配置を上にするためにrelativeをつける*/
+    z-index: 3;/*#header-imgよりもz-indexの値を大きな数値にして上に表示*/
+    background:#f8f9fa;
+`
 
 const WebSite01 = (props: any) => {
 
-    const [showSplash, setShowSplash] = useState(true);
+    const [isTimePassed, setIsTimePassed] = useState(false);
+    const [isSecondTimePassed, setIsSecondTimePassed] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowSplash(false);
+        setTimeout(() => {
+            setIsTimePassed(true)
         }, 1200);
-        return () => clearTimeout(timer);
-    }, [showSplash]);
-
+        setTimeout(() => {
+            setIsSecondTimePassed(true)
+        },2100);
+    });
 
     return (
         <>
             <HeadTag/>
-            <SplashTag/>
+            <SplashTag isTimePassed={isTimePassed}/>
             <div id="wrapper">
-                <Header/>
-
+                <Header
+                    isSecondTimePassed={isSecondTimePassed}
+                />
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
                 {/*<div class="openbtn"><span></span><span></span><span></span></div>*/}
                 {/*<nav id="g-nav">*/}
@@ -38,15 +49,15 @@ const WebSite01 = (props: any) => {
                 {/*    </div>*/}
                 {/*</nav>*/}
 
-                {/*<main id="container">*/}
-                {/*    <article id="lead" class="inner zoomOutTrigger">*/}
-                {/*        <div class="lead-img fadeInTrigger"></div>*/}
-                {/*        <div class="lead-area fadeInTrigger">*/}
-                {/*            <h2>白金台にある<br/>癒しの<br/>プライベート空間</h2>*/}
-                {/*            <p>エステサロン<br/>ビューティフルデイズは、<br/>がんばるあなたが<br/>ちょっと疲れた時に<br/>立ち寄れる<br/>ほっとする時間を<br/>つくります。</p>*/}
-                {/*            <div class="lead-btn"><a href="#" class="btn04 bordertop"><span>お店のご紹介</span></a></div>*/}
-                {/*        </div>*/}
-                {/*    </article>*/}
+                <main id="container" css={main}>
+                    <article id="lead" className="inner zoomOutTrigger">
+                        <div className="lead-img fadeInTrigger"></div>
+                        <div className="lead-area fadeInTrigger">
+                            <h2>白金台にある<br/>癒しの<br/>プライベート空間</h2>
+                            <p>エステサロン<br/>ビューティフルデイズは、<br/>がんばるあなたが<br/>ちょっと疲れた時に<br/>立ち寄れる<br/>ほっとする時間を<br/>つくります。</p>
+                            <div className="lead-btn"><a href="#" className="btn04 bordertop"><span>お店のご紹介</span></a></div>
+                        </div>
+                    </article>
 
                 {/*    <section id="menu">*/}
                 {/*        <h2><span class="slide-in leftAnime"><span*/}
@@ -204,7 +215,7 @@ const WebSite01 = (props: any) => {
 
                 {/*        </div>*/}
                 {/*    </article>*/}
-                {/*</main>*/}
+                </main>
 
                 {/*<footer id="footer" class="inner">*/}
                 {/*    <dl>*/}
