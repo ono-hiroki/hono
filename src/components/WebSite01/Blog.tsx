@@ -293,6 +293,7 @@ const Contact = () => {
                         {ITEMS.map((item, index) => {
                             return (
                                 <BlogArticle
+                                    key={index}
                                     img={item.img}
                                     dateTime={item.dateTime}
                                     dateTimeString={item.dateTimeString}
