@@ -7,6 +7,7 @@ import {css, keyframes} from "@emotion/react";
 import Lead from "../components/WebSite01/Lead";
 import Menu from "../components/WebSite01/Menu";
 import Contact from "../components/WebSite01/Contact";
+import Blog from "../components/WebSite01/Blog";
 
 const main = css`
     position: relative;/*#header-imgよりも配置を上にするためにrelativeをつける*/
@@ -52,90 +53,8 @@ const WebSite01 = (props: any) => {
                     <Lead/>
                     <Menu/>
                     <Contact/>
+                    <Blog/>
 
-
-                    {/*<article id="blog" class="inner">*/}
-                    {/*    <h2><span class="slide-in leftAnime"><span*/}
-                    {/*        class="slide-in_inner leftAnimeInner">Blog</span></span></h2>*/}
-                    {/*    <div class="blog-area">*/}
-                    {/*        <article class="fadeInTrigger"><a href="#" class="bgDU">*/}
-                    {/*            <figure class="mask"><img src="img/blog_01.jpg" alt=""/>*/}
-                    {/*                <time datetime="2021-03-04">2021.3.4</time>*/}
-                    {/*            </figure>*/}
-                    {/*            <div class="cap">*/}
-                    {/*                <time datetime="2021-08-09">2021.3.4</time>*/}
-                    {/*                <h3>お得なコスメキャンペーンを実施中！</h3>*/}
-                    {/*                <p>エステサロンビューティフルデイズの<br/>春のコスメキャンペーンがスタートしました。...</p>*/}
-                    {/*                <span>Read More</span>*/}
-
-                    {/*            </div>*/}
-                    {/*        </a></article>*/}
-                    {/*        <div class="blog-block">*/}
-                    {/*            <article class="fadeInTrigger"><a href="#" class="bgDU">*/}
-                    {/*                <figure class="mask"><img src="img/blog_02.jpg" alt=""/>*/}
-                    {/*                    <time datetime="2021-01-04">2021.1.4</time>*/}
-                    {/*                </figure>*/}
-                    {/*                <div class="cap">*/}
-                    {/*                    <h3>新春のご挨拶</h3>*/}
-                    {/*                    <span>Read More</span>*/}
-
-                    {/*                </div>*/}
-                    {/*            </a></article>*/}
-                    {/*            <article class="fadeInTrigger"><a href="#" class="bgDU">*/}
-                    {/*                <figure class="mask"><img src="img/blog_04.jpg" alt=""/>*/}
-                    {/*                    <time datetime="2020-12-25">2020.12.25</time>*/}
-                    {/*                </figure>*/}
-                    {/*                <div class="cap">*/}
-                    {/*                    <h3>本日のお客様</h3>*/}
-                    {/*                    <span>Read More</span>*/}
-
-                    {/*                </div>*/}
-                    {/*            </a></article>*/}
-                    {/*            <article class="fadeInTrigger"><a href="#" class="bgDU">*/}
-                    {/*                <figure class="mask"><img src="img/blog_03.jpg" alt=""/>*/}
-                    {/*                    <time datetime="2020-12-24">2020.12.24</time>*/}
-                    {/*                </figure>*/}
-                    {/*                <div class="cap">*/}
-                    {/*                    <h3>クリスマスイブの準備はおすみですか？</h3>*/}
-                    {/*                    <span>Read More</span>*/}
-
-                    {/*                </div>*/}
-                    {/*            </a></article>*/}
-                    {/*            <article class="fadeInTrigger"><a href="#" class="bgDU">*/}
-                    {/*                <figure class="mask"><img src="img/blog_05.jpg" alt=""/>*/}
-                    {/*                    <time datetime="2020-11-09">2020.11.09</time>*/}
-                    {/*                </figure>*/}
-                    {/*                <div class="cap">*/}
-                    {/*                    <h3>美容に良い食べ物のご紹介！</h3>*/}
-                    {/*                    <span>Read More</span>*/}
-
-                    {/*                </div>*/}
-                    {/*            </a></article>*/}
-                    {/*            <article class="fadeInTrigger"><a href="#" class="bgDU">*/}
-                    {/*                <figure class="mask"><img src="img/blog_06.jpg" alt=""/>*/}
-                    {/*                    <time datetime="2020-08-09">2020.8.9</time>*/}
-                    {/*                </figure>*/}
-                    {/*                <div class="cap">*/}
-                    {/*                    <h3>夏のイチオシコスメ！</h3>*/}
-                    {/*                    <span>Read More</span>*/}
-
-                    {/*                </div>*/}
-                    {/*            </a></article>*/}
-                    {/*            <article class="fadeInTrigger"><a href="#" class="bgDU">*/}
-                    {/*                <figure class="mask"><img src="img/blog_07.jpg" alt=""/>*/}
-                    {/*                    <time datetime="2020-07-07">2020.7.7</time>*/}
-                    {/*                </figure>*/}
-                    {/*                <div class="cap">*/}
-                    {/*                    <h3>ブログはじめました</h3>*/}
-                    {/*                    <span>Read More</span>*/}
-
-                    {/*                </div>*/}
-                    {/*            </a></article>*/}
-
-                    {/*        </div>*/}
-
-                    {/*    </div>*/}
-                    {/*</article>*/}
                 </main>
 
                 {/*<footer id="footer" class="inner">*/}
