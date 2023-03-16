@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from "react";
 import {css, keyframes} from "@emotion/react";
 import {useInView} from "react-intersection-observer";
 
+// TODO cssの分離 アニメーションの分離
+
 const footer = css`
  font-family: 'Parisienne', cursive;
     position: relative;/*#header-imgよりも配置を上にするためにrelativeをつける*/
