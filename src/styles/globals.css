@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*!
  * ress.css • v1.2.2
  * MIT License
