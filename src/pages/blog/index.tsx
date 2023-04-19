@@ -18,7 +18,7 @@ export default function Home() {
         //
         //         <p className={styles.description}>
         //             Get started by editing{' '}
-        //             <code className={styles.code}>pages/index.tsx</code>
+        //             <code className={styles.code}>pages/index2.tsx</code>
         //         </p>
         //
         //         <div className={styles.grid}>
