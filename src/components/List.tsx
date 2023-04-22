@@ -1,41 +1,31 @@
 import Image from "next/image";
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import {Links} from "./Domain/Links";
+import {useGetWindowSize} from "../hooks/useGetWindowSize";
 
 export function List() {
-    const items = [
-        {
-            href: 'https://nextjs.org/docs',
-            title: 'Documentation \u2192',
-            description: 'Find in-depth information about Next.js features and API.',
-        },
-        {
-            href: 'https://nextjs.org/learn',
-            title: 'Learn \u2192',
-            description: 'Learn about Next.js in an interactive course with quizzes!',
-        },
-        {
-            href: 'https://nextjs.org/docs',
-            title: 'Documentation \u2192',
-            description: 'Find in-depth information about Next.js features and API.',
-        },
-        {
-            href: 'https://nextjs.org/learn',
-            title: 'Learn \u2192',
-            description: 'Learn about Next.js in an interactive course with quizzes!',
-        },
-    ]
+    const ref = useRef(null);
+    const [imageWidth, setWidth] = React.useState(null);
+    const window = useGetWindowSize()
+    useEffect(() => {
+        if (ref.current) {
+            const current = ref.current as any;
+            const imageWidth = current.offsetWidth;
+            setWidth(imageWidth);
+        }
+    }, [window.width]);
 
     return (
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {Links.map((item, index) => {
+
                     return (
                         <a key={index} href={item.href}
+                           ref={ref}
                            className="group relative max-w-sm rounded overflow-hidden shadow-lg">
-                            <div style={{margin: '0 auto', position: 'relative', width: '336px', height: '189px'}}>
+                            <div style={{margin: '0 auto', position: 'relative', width: imageWidth || "336px", height: '189px'}}>
                                 <Image
-                                    className="w-full"
                                     src={item.imageSrc}
                                     alt="Sunset in the mountains"
                                     layout="fill"
