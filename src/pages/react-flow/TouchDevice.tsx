@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, Position, addEdge, Edge, Connection} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import {useGetWindowSize} from "../hooks/useGetWindowSize";
+import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const initialNodes = [
     {
