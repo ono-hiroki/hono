@@ -1,6 +1,6 @@
-import styles from '../styles/Home.module.css'
 import Image from "next/image";
 import React from "react";
+import {Links} from "./Domain/Links";
 
 export function List() {
     const items = [
@@ -29,39 +29,37 @@ export function List() {
     return (
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                {/*@ts-ignore*/}
-                {items.map(item => {
+                {Links.map((item, index) => {
                     return (
-
-
-                        <div className="group relative max-w-sm rounded overflow-hidden shadow-lg">
-                            <div style={{margin: '0 auto', position: 'relative', width: '336px', height: '200px'}}>
+                        <a key={index} href={item.href}
+                           className="group relative max-w-sm rounded overflow-hidden shadow-lg">
+                            <div style={{margin: '0 auto', position: 'relative', width: '336px', height: '189px'}}>
                                 <Image
                                     className="w-full"
-                                    src="/earth.jpg"
+                                    src={item.imageSrc}
                                     alt="Sunset in the mountains"
                                     layout="fill"
-                                    objectFit='contain'
+                                    objectFit='cover'
                                 />
                             </div>
 
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+                                <div className="font-bold text-xl mb-2">{item.title}</div>
                                 <p className="text-gray-700 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-                                    Maiores
-                                    et perferendis eaque, exercitationem praesentium nihil.
+                                    {item.description}
                                 </p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
-                       <span
-                           className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                                <span
-                                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                                <span
-                                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                                {item.tags.map((tag, index) => {
+                                    return (
+                                        <span key={index}
+                                              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                                            {tag}
+                                        </span>
+                                    )
+                                })}
                             </div>
-                        </div>
+                        </a>
 
                     );
                 })}
