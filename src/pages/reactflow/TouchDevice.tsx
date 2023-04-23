@@ -43,7 +43,7 @@ const TouchDeviceFlow = () => {
             fitView
             connectOnClick={true} // デフォルトはtrue
         />
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

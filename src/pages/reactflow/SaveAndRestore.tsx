@@ -85,7 +85,7 @@ const SaveRestore = () => {
                     <button onClick={onAdd}>add node</button>
                 </div>
             </ReactFlow>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

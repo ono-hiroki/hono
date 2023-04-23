@@ -54,7 +54,7 @@ const CustomNodeFlow = () => {
                 <Controls />
                 <Background gap={25} />
             </ReactFlow>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

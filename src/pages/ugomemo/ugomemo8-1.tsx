@@ -81,7 +81,7 @@ const Ugomemo81 = (props: any) => {
             {/*</Section>*/}
             <br/><br/><br/><br/><br/>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </>
     )
 }

@@ -117,7 +117,7 @@ function Flow() {
                 fitView
                 style={rfStyle}
             />
-            <style jsx global>{Styles}</style>
+            <style jsx >{Styles}</style>
         </div>
     );
 }

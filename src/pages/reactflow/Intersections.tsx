@@ -78,7 +78,7 @@ const BasicFlow = () => {
                 <Background/>
                 <Controls/>
             </ReactFlow>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

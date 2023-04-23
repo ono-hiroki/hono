@@ -97,7 +97,7 @@ const DnDFlow = () => {
                 </div>
                 <Sidebar />
             </ReactFlowProvider>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

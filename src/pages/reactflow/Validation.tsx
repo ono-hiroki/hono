@@ -69,7 +69,7 @@ const HorizontalFlow = () => {
             fitView
             attributionPosition="bottom-left"
         />
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
 
     );

@@ -80,7 +80,7 @@ const AddNodeOnEdgeDrop = () => {
                 fitView
                 fitViewOptions={fitViewOptions}
             />
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

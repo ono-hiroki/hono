@@ -141,7 +141,7 @@ const OverviewFlow = () => {
                 <Controls/>
                 <Background color="#aaa" gap={16}/>
             </ReactFlow>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

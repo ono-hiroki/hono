@@ -152,7 +152,7 @@ const CustomNodeFlow = () => {
                 />
                 <Controls/>
             </ReactFlow>
-            <style jsx global>{Styles}</style>
+            <style jsx >{Styles}</style>
         </div>
     );
 };

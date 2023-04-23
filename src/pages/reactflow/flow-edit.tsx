@@ -148,7 +148,7 @@ function Flow() {
                 </Panel>
             </ReactFlow>
 
-            <style jsx global>{`
+            <style jsx >{`
             body {
                   margin: 0;
                   background-color: #f8f8f8;

@@ -48,7 +48,7 @@ const Ugomemo312 = (props: any) => {
                 <p>スクロールとするとヌルッと出てくるよ！</p>
             </Section>
 
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </>
     )
 }

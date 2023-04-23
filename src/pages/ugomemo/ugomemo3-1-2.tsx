@@ -29,7 +29,7 @@ const Ugomemo312 = (props: any) => {
             <br/>
             <br/>
             <br/>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </>
     )
 }

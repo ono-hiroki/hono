@@ -305,7 +305,7 @@ const Contact = () => {
 
                 </div>
             </article>
-            {/*<style jsx global>{Style}</style>*/}
+            {/*<style jsx >{Style}</style>*/}
         </>
     )
 }

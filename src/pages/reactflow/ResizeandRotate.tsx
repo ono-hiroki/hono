@@ -65,7 +65,7 @@ function ReactFlowPro() {
             >
                 <Background/>
             </ReactFlow>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 }

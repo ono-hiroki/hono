@@ -93,7 +93,7 @@ const LayoutFlow = () => {
                 <button onClick={() => onLayout('TB')}>vertical layout</button>
                 <button onClick={() => onLayout('LR')}>horizontal layout</button>
             </div>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

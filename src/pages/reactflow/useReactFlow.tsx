@@ -47,7 +47,7 @@ const ProviderFlow = () => {
                     />
                 </div>
                 <Sidebar/>
-                <style jsx global>{Style}</style>
+                <style jsx >{Style}</style>
             </ReactFlowProvider>
         </div>
     );

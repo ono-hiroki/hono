@@ -82,7 +82,7 @@ const EasyConnectExample = () => {
                 connectionLineComponent={CustomConnectionLine}
                 connectionLineStyle={connectionLineStyle}
             />
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

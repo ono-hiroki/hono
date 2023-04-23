@@ -118,7 +118,7 @@ const CollisionDetectionFlow = () => {
                     <Background color="#000" gap={40}/>
                 </ReactFlow>
             </div>
-            <style jsx global>{Style}</style>
+            <style jsx>{Style}</style>
         </div>
     );
 };

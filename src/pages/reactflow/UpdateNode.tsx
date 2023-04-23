@@ -100,7 +100,7 @@ const UpdateNode = () => {
                     </div>
                 </div>
             </ReactFlow>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };

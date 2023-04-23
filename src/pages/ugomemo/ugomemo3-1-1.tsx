@@ -41,7 +41,7 @@ const Index = (props: any) => {
                     </div>
                 </div>
             </div>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </>
     )
 }

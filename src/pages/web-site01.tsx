@@ -60,7 +60,7 @@ const WebSite01 = (props: any) => {
 
             </div>
 
-            <style jsx global>{globalStyles}</style>
+            <style jsx>{globalStyles}</style>
         </>
     )
 }

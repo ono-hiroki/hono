@@ -84,7 +84,7 @@ const NodeAsHandleFlow = () => {
                 connectionMode={ConnectionMode.Loose}
             >
                 <Background />
-                <style jsx global>{Style}</style>
+                <style jsx >{Style}</style>
             </ReactFlow>
         </div>
     );

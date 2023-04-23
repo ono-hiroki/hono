@@ -126,7 +126,7 @@ const Flow = () => {
             >
                 <Background variant={BackgroundVariant.Cross} gap={50}/>
             </ReactFlow>
-            <style jsx global>{Style}</style>
+            <style jsx >{Style}</style>
         </div>
     );
 };
