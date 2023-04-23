@@ -14,10 +14,10 @@ export const MyLists = [
         tags: ['instagram'],
     },
     {
-        href: 'http://conticuwa.com/reactflow/edit',
+        href: '#',
         title: 'モデリングツール（仮）に満たないもの \u2192',
         imageSrc: '/myLists/img_1.png',
-        description: 'モデリングツールをつくるためにreactflowを触ってみた。EC2にデプロイしてる。バックエンドはLaravel。もしかしたら止めてるかも',
+        description: 'お金ないので止めてる。モデリングツールをつくるためにreactflowを触ってみた。EC2にデプロイしてた。バックエンドはLaravel。',
         tags: ['React', 'TypeScript', 'reactflow', 'Laravel'],
     },
     {
