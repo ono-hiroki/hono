@@ -28,6 +28,13 @@ export const MyLists = [
         tags: ['three.js', 'vite'],
     },
     {
+        href: 'https://room-alpha-three.vercel.app/',
+        title: '部屋 \u2192',
+        imageSrc: '/myLists/img_13.png',
+        description: 'blenderで作ったオブジェクトをthreejsで表示させたもの',
+        tags: ['three.js', 'vite', 'blender'],
+    },
+    {
         href: '/reactflow',
         title: 'reactflowの試し \u2192',
         imageSrc: '/myLists/img_9.png',
