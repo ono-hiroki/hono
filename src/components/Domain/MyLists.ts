@@ -1,4 +1,4 @@
-export const Links = [
+export const MyLists = [
     {
         href: 'https://github.com/ono-hiroki',
         title: 'github \u2192',

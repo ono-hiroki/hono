@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React, {useEffect, useRef} from "react";
-import {Links} from "./Domain/Links";
-import {useGetWindowSize} from "../hooks/useGetWindowSize";
+import {UgomemoLists} from "../Domain/UgomemoLists";
+import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
-export function List() {
+export function Card() {
     const ref = useRef(null);
     const [imageWidth, setWidth] = React.useState(null);
     const window = useGetWindowSize()
@@ -18,7 +18,7 @@ export function List() {
     return (
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                {Links.map((item, index) => {
+                {UgomemoLists.map((item, index) => {
 
                     return (
                         <a key={index} href={item.href}
