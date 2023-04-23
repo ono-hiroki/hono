@@ -70,7 +70,7 @@ export const MyLists = [
         tags: ['まとめ'],
     },
     {
-        href: 'https://classroom-green.vercel.app/',
+        href: 'https://school-outside.vercel.app/',
         title: '学校 外 \u2192',
         imageSrc: '/myLists/img_12.png',
         description: 'sketchupで作ったオブジェクトをthreejsで表示させたもの',
