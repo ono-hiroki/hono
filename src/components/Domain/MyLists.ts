@@ -35,6 +35,13 @@ export const MyLists = [
         tags: ['まとめ'],
     },
     {
+        href: 'https://classroom-green.vercel.app/',
+        title: '教室 \u2192',
+        imageSrc: '/myLists/img_11.png',
+        description: 'sketchupで作ったオブジェクトをthreejsで表示させたもの',
+        tags: ['three.js', 'vite', 'sketchup'],
+    },
+    {
         href: 'https://real-object-threejs.vercel.app/',
         title: 'realオブジェクト \u2192',
         imageSrc: '/myLists/img_2.png',
@@ -62,7 +69,13 @@ export const MyLists = [
         description: 'three.jsで試した者たち',
         tags: ['まとめ'],
     },
-
+    {
+        href: 'https://classroom-green.vercel.app/',
+        title: '学校 外 \u2192',
+        imageSrc: '/myLists/img_12.png',
+        description: 'sketchupで作ったオブジェクトをthreejsで表示させたもの',
+        tags: ['three.js', 'vite', 'sketchup'],
+    },
 
 
 ];
