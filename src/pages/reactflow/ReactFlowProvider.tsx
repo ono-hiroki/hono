@@ -11,7 +11,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import Sidebar from 'src/components/ReactFlowProvider/Sidebar.js';
+import Sidebar from 'src/components/reactflow/ReactFlowProvider/Sidebar.js';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const initialNodes = [

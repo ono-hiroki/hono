@@ -5,8 +5,8 @@ import ReactFlow, { addEdge, applyEdgeChanges, applyNodeChanges, Connection, Edg
     NodeChange
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import ColorSelectorNode from 'src/components/CustomNodes2/ColorSelectorNode';
-import TextUpdaterNode from 'src/components/react-flow/TextUpdaterNode';
+import ColorSelectorNode from 'src/components/reactflow/CustomNodes2/ColorSelectorNode';
+import TextUpdaterNode from 'src/components/reactflow/react-flow/TextUpdaterNode';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const rfStyle = {

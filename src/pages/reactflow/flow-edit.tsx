@@ -14,10 +14,10 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
-import useStore, {RFState} from "../../components/react-flow/store";
+import useStore, {RFState} from "../../components/reactflow/react-flow/store";
 import {shallow} from "zustand/shallow";
-import MindMapNode from "src/components/react-flow/Nodes";
-import MindMapEdge from "src/components/react-flow/Edges";
+import MindMapNode from "src/components/reactflow/react-flow/Nodes";
+import MindMapEdge from "src/components/reactflow/react-flow/Edges";
 
 
 const selector = (state: RFState) => ({

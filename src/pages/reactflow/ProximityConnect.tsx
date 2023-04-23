@@ -14,7 +14,7 @@ import ReactFlow, {
 
 import 'reactflow/dist/style.css';
 
-import {initialEdges, initialNodes} from 'src/components/ProximityConnect/nodes-and-edges';
+import {initialEdges, initialNodes} from 'src/components/reactflow/ProximityConnect/nodes-and-edges';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const MIN_DISTANCE = 150;

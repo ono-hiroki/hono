@@ -3,7 +3,7 @@ import React, {useCallback} from 'react';
 import ReactFlow, {ReactFlowProvider, addEdge, useNodesState, useEdgesState, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import Sidebar from 'src/components/useReactFlow/Sidebar.js';
+import Sidebar from 'src/components/reactflow/useReactFlow/Sidebar.js';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const initialNodes = [

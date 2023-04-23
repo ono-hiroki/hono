@@ -3,9 +3,9 @@ import ReactFlow, {MiniMap, Background, BackgroundVariant, Controls, Edge} from 
 
 import 'reactflow/dist/style.css';
 
-import ResizableNode from 'src/components/NodeResizer/ResizableNode';
-import ResizableNodeSelected from 'src/components/NodeResizer/ResizableNodeSelected';
-import CustomResizerNode from 'src/components/NodeResizer/CustomResizerNode';
+import ResizableNode from 'src/components/reactflow/NodeResizer/ResizableNode';
+import ResizableNodeSelected from 'src/components/reactflow/NodeResizer/ResizableNodeSelected';
+import CustomResizerNode from 'src/components/reactflow/NodeResizer/CustomResizerNode';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const nodeTypes = {

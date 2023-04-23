@@ -17,7 +17,7 @@ import ReactFlow, {
     useStoreApi,
 } from 'reactflow';
 
-import {edges as initialEdges, nodes as initialNodes} from 'src/components/FeatureOverview/initial-elements';
+import {edges as initialEdges, nodes as initialNodes} from 'src/components/reactflow/FeatureOverview/initial-elements';
 // import CustomNode from 'src/components/FeatureOverview/CustomNode';
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";

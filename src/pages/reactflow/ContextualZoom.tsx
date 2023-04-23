@@ -2,7 +2,7 @@
 import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Connection, Edge} from 'reactflow';
 
-import ZoomNode from 'src/components/ContextualZoom/ZoomNode';
+import ZoomNode from 'src/components/reactflow/ContextualZoom/ZoomNode';
 
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";

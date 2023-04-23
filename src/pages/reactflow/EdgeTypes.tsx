@@ -3,7 +3,7 @@ import React, {useCallback} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, addEdge, Controls, Background, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import {getNodesAndEdges} from 'src/components/EdgeTypes/utils';
+import {getNodesAndEdges} from 'src/components/reactflow/EdgeTypes/utils';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const {nodes: initialNodes, edges: initialEdges} = getNodesAndEdges();

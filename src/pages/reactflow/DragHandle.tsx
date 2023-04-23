@@ -3,7 +3,7 @@ import React from 'react';
 import ReactFlow, {useNodesState, useEdgesState, Background} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import DragHandleNode from 'src/components/DragHandle/DragHandleNode';
+import DragHandleNode from 'src/components/reactflow/DragHandle/DragHandleNode';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const nodeTypes = {

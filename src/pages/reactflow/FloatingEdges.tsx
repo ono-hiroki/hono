@@ -13,9 +13,9 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import FloatingEdge from 'src/components/FloatingEdges/FloatingEdge';
-import FloatingConnectionLine from 'src/components/FloatingEdges/FloatingConnectionLine';
-import {createNodesAndEdges} from 'src/components/FloatingEdges/utils'; // 楽にエッジを作るための関数
+import FloatingEdge from 'src/components/reactflow/FloatingEdges/FloatingEdge';
+import FloatingConnectionLine from 'src/components/reactflow/FloatingEdges/FloatingConnectionLine';
+import {createNodesAndEdges} from 'src/components/reactflow/FloatingEdges/utils'; // 楽にエッジを作るための関数
 
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 

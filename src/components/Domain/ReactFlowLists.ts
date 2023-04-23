@@ -156,10 +156,10 @@ export const ReactFlowLists = [
         tags: ['reactflow', 'react', 'typescript', 'nextjs'],
     },
     {
-        href: `${pathgroup}/HorizonalFlow`,
-        title: 'HorizonalFlow \u2192',
+        href: `${pathgroup}/HorizontalFlow`,
+        title: 'HorizontalFlow \u2192',
         imageSrc: '/myLists/img.png',
-        description: 'HorizonalFlow',
+        description: 'HorizontalFlow',
         tags: ['reactflow', 'react', 'typescript', 'nextjs'],
     },
     {

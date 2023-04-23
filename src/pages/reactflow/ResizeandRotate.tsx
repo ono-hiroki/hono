@@ -4,7 +4,7 @@ import ReactFlow, {ReactFlowProvider, Background, Edge, Position} from 'reactflo
 
 import 'reactflow/dist/style.css';
 
-import ResizeRotateNode from 'src/components/ResizeandRotate/ResizeRotateNode';
+import ResizeRotateNode from 'src/components/reactflow/ResizeandRotate/ResizeRotateNode';
 import {useGetWindowSize} from "src/hooks/useGetWindowSize";
 
 const nodes = [

@@ -5,8 +5,8 @@ import { shallow } from 'zustand/shallow';
 
 import 'reactflow/dist/style.css';
 
-import useStore from 'src/components/UsingaStateManagementLibrary/store';
-import ColorChooserNode from 'src/components/UsingaStateManagementLibrary/ColorChooserNode';
+import useStore from 'src/components/reactflow/UsingaStateManagementLibrary/store';
+import ColorChooserNode from 'src/components/reactflow/UsingaStateManagementLibrary/ColorChooserNode';
 import {useGetWindowSize} from "src/hooks/useGetWindowSize";
 
 const nodeTypes = { colorChooser: ColorChooserNode };

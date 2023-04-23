@@ -13,7 +13,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import CustomEdge from 'src/components/CustomEdges/CustomEdge';
+import CustomEdge from 'src/components/reactflow/CustomEdges/CustomEdge';
 import {useGetWindowSize} from 'src/hooks/useGetWindowSize';
 
 const initialNodes = [

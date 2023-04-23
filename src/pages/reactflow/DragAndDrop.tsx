@@ -11,7 +11,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import Sidebar from 'src/components/DragAndDrop/Sidebar';
+import Sidebar from 'src/components/reactflow/DragAndDrop/Sidebar';
 
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 

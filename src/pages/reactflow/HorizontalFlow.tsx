@@ -1,4 +1,4 @@
-// HorizonalFlow.tsx
+// HorizontalFlow
 import React, {useCallback} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, addEdge, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -125,14 +125,14 @@ const HorizontalFlow = () => {
     return (
         <div style={{width: width, height: height}}>
             <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                fitView
-                attributionPosition="bottom-left"
-            ></ReactFlow>
+    nodes={nodes}
+    edges={edges}
+    onNodesChange={onNodesChange}
+    onEdgesChange={onEdgesChange}
+    onConnect={onConnect}
+    fitView
+    attributionPosition="bottom-left"
+    />
         </div>
     );
 };

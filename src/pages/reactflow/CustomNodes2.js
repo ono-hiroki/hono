@@ -3,7 +3,7 @@ import React, {useState, useEffect, useCallback} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, addEdge, MiniMap, Controls} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import ColorSelectorNode from 'src/components/CustomNodes2/ColorSelectorNode';
+import ColorSelectorNode from 'src/components/reactflow/CustomNodes2/ColorSelectorNode';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const initBgColor = '#1A192B';

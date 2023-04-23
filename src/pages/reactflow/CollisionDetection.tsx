@@ -2,7 +2,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, Background} from 'reactflow';
 
-import {nodes as initialNodes, edges as initialEdges} from 'src/components/CollisionDetection/initial-elements';
+import {nodes as initialNodes, edges as initialEdges} from 'src/components/reactflow/CollisionDetection/initial-elements';
 
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";

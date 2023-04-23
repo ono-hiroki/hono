@@ -5,7 +5,7 @@ import { select } from 'd3-selection';
 import { NodeResizer } from '@reactflow/node-resizer';
 
 import '@reactflow/node-resizer/dist/style.css';
-import styles from '../../styles/ResizeandRotate/style.module.css';
+import styles from '../../../styles/ResizeandRotate/style.module.css';
 
 export default function ResizeRotateNode({
                                              id,

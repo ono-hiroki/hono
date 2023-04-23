@@ -3,7 +3,7 @@ import React, {useCallback} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, addEdge, Background, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import ConnectionLine from 'src/components/CustomConnectionline/ConnectionLine';
+import ConnectionLine from 'src/components/reactflow/CustomConnectionline/ConnectionLine';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const initialNodes = [

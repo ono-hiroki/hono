@@ -14,7 +14,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import CustomEdge from 'src/components/EdgeLabelRenderer/CustomEdge';
+import CustomEdge from 'src/components/reactflow/EdgeLabelRenderer/CustomEdge';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const initialNodes: Node[] = [

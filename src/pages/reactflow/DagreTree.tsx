@@ -5,7 +5,7 @@ import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState, C
 import dagre from 'dagre';
 import 'reactflow/dist/style.css';
 
-import {initialNodes, initialEdges} from 'src/components/DagreTree/nodes-edges';
+import {initialNodes, initialEdges} from 'src/components/reactflow/DagreTree/nodes-edges';
 
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 

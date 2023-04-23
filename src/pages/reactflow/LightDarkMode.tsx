@@ -3,9 +3,9 @@ import React, {useCallback, useState} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, addEdge, MiniMap, Controls, Connection, Edge} from 'reactflow';
 import styled, {ThemeProvider} from 'styled-components';
 
-import {nodes as initialNodes, edges as initialEdges} from 'src/components/LightDarkMode/nodes-edges';
-import {darkTheme, lightTheme} from 'src/components/LightDarkMode/theme';
-import CustomNode from 'src/components/LightDarkMode/CustomNode';
+import {nodes as initialNodes, edges as initialEdges} from 'src/components/reactflow/LightDarkMode/nodes-edges';
+import {darkTheme, lightTheme} from 'src/components/reactflow/LightDarkMode/theme';
+import CustomNode from 'src/components/reactflow/LightDarkMode/CustomNode';
 
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";

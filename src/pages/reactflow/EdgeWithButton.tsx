@@ -12,7 +12,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import ButtonEdge from 'src/components/EdgewithButton/ButtonEdge.js';
+import ButtonEdge from 'src/components/reactflow/EdgewithButton/ButtonEdge.js';
 import {useGetWindowSize} from "src/hooks/useGetWindowSize";
 
 const initialNodes = [

@@ -12,8 +12,8 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import SimpleFloatingEdge from 'src/components/SimpleFloatingEdges/SimpleFloatingEdge';
-import CustomNode from 'src/components/SimpleFloatingEdges/CustomNode';
+import SimpleFloatingEdge from 'src/components/reactflow/SimpleFloatingEdges/SimpleFloatingEdge';
+import CustomNode from 'src/components/reactflow/SimpleFloatingEdges/CustomNode';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
 
 const nodeTypes = {

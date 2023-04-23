@@ -12,7 +12,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import {createNodesAndEdges} from 'src/components/stress/untils';
+import {createNodesAndEdges} from 'src/components/reactflow/stress/untils';
 import {useGetWindowSize} from "src/hooks/useGetWindowSize";
 
 const {nodes: initialNodes, edges: initialEdges} = createNodesAndEdges(10, 10);

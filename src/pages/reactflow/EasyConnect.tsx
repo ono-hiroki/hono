@@ -3,9 +3,9 @@ import React, {useCallback} from 'react';
 
 import ReactFlow, {addEdge, useNodesState, useEdgesState, MarkerType, Connection, Edge} from 'reactflow';
 
-import CustomNode from 'src/components/EasyConnect/CustomNode';
-import FloatingEdge from 'src/components/EasyConnect/FloatingEdge';
-import CustomConnectionLine from 'src/components/EasyConnect/CustomConnectionLine';
+import CustomNode from 'src/components/reactflow/EasyConnect/CustomNode';
+import FloatingEdge from 'src/components/reactflow/EasyConnect/FloatingEdge';
+import CustomConnectionLine from 'src/components/reactflow/EasyConnect/CustomConnectionLine';
 
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";

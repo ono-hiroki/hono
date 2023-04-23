@@ -2,9 +2,9 @@
 import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge, Controls, Background, Connection, Edge} from 'reactflow';
 
-import DownloadButton from 'src/components/DownloadImage/DownloadButton';
-import CustomNode from 'src/components/DownloadImage/CustomNode';
-import {initialNodes, initialEdges} from 'src/components/DownloadImage/nodes-edges';
+import DownloadButton from 'src/components/reactflow/DownloadImage/DownloadButton';
+import CustomNode from 'src/components/reactflow/DownloadImage/CustomNode';
+import {initialNodes, initialEdges} from 'src/components/reactflow/DownloadImage/nodes-edges';
 
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
