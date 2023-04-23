@@ -27,7 +27,7 @@ export default function Home() {
         renderer.setSize(width, height); // レンダラーのサイズを設定
         document.body.appendChild(renderer.domElement); // レンダラーをDOMに追加
 
-        const texture = new THREE.TextureLoader().load('earth.jpg'); // テクスチャーを読み込み
+        const texture = new THREE.TextureLoader().load('/earth.jpg'); // テクスチャーを読み込み
 
         // 直方体を作成
         const geometry = new THREE.BoxGeometry(0.1, 1); // ジオメトリを作成

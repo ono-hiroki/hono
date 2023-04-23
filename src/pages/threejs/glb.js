@@ -6,7 +6,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
 
 const Model = () => {
     // location of the 3D model
-    const gltf = useLoader(GLTFLoader, "test2.gltf");
+    const gltf = useLoader(GLTFLoader, "/test2.gltf");
     return (
         <>
             {/* Use scale to control the size of the 3D model */}

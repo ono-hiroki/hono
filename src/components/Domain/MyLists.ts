@@ -54,6 +54,13 @@ export const MyLists = [
         imageSrc: '/myLists/img_3.png',
         description: '動くWebデザイン アイデア帳のサンプルを動かしてみた者たち',
         tags: ['まとめ'],
-    }
+    },
+    {
+        href: '/threejs',
+        title: '3Dモデル系 \u2192',
+        imageSrc: '/myLists/img_9.png',
+        description: 'three.jsを使った3Dモデル',
+        tags: ['まとめ'],
+    },
 
 ];
