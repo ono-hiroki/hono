@@ -42,6 +42,13 @@ export const MyLists = [
         tags: ['まとめ'],
     },
     {
+        href: 'https://entrance-eight.vercel.app/',
+        title: '入り口 \u2192',
+        imageSrc: '/myLists/img_14.png',
+        description: 'threejs journeyを参考にしたもの',
+        tags: ['three.js', 'vite'],
+    },
+    {
         href: 'https://classroom-green.vercel.app/',
         title: '教室 \u2192',
         imageSrc: '/myLists/img_11.png',
