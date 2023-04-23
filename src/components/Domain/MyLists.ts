@@ -59,7 +59,7 @@ export const MyLists = [
         href: '/threejs',
         title: '3Dモデル系 \u2192',
         imageSrc: '/myLists/img_9.png',
-        description: 'three.jsを使った3Dモデル',
+        description: 'three.jsで試した者たち',
         tags: ['まとめ'],
     },
 

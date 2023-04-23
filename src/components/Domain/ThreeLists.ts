@@ -9,6 +9,13 @@ export const ThreeLists = [
         tags: ['Next.js', 'React', 'TypeScript', 'three.js', 'vite'],
     },
     {
+        href: `/${path}/glb`,
+        title: 'glb \u2192',
+        imageSrc: '/three/img_2.png',
+        description: 'blenderで作ったglbを表示みた',
+        tags: ['Next.js', 'React', 'TypeScript', 'three.js', 'vite'],
+    },
+    {
         href: `/${path}/try-three`,
         title: 'try-three \u2192',
         imageSrc: '/three/img_4.png',
@@ -34,13 +41,6 @@ export const ThreeLists = [
         title: 'yakudoo \u2192',
         imageSrc: '/three/img_5.png',
         description: '置いてあるだけ',
-        tags: ['Next.js', 'React', 'TypeScript', 'three.js', 'vite'],
-    },
-    {
-        href: `/${path}/glb`,
-        title: 'glb \u2192',
-        imageSrc: '/three/img_2.png',
-        description: 'glb',
         tags: ['Next.js', 'React', 'TypeScript', 'three.js', 'vite'],
     },
 ];
