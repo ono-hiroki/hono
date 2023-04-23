@@ -22,9 +22,16 @@ export function List() {
 
                     return (
                         <a key={index} href={item.href}
+                           target='_blank'
+                           rel='noopener noreferrer'
                            ref={ref}
                            className="group relative max-w-sm rounded overflow-hidden shadow-lg">
-                            <div style={{margin: '0 auto', position: 'relative', width: imageWidth || "336px", height: '189px'}}>
+                            <div style={{
+                                margin: '0 auto',
+                                position: 'relative',
+                                width: imageWidth || "336px",
+                                height: '189px'
+                            }}>
                                 <Image
                                     src={item.imageSrc}
                                     alt="Sunset in the mountains"
