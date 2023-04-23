@@ -38,7 +38,7 @@ const NAV_LINKS = [
     {href: 'geometry', label: 'geometry'},
     {href: 'glb', label: 'glb'},
     {href: 'PanningandZooming', label: 'PanningandZooming'},
-    {href: 'react-flow', label: 'react-flow'},
+    {href: 'reactflow', label: 'reactflow'},
     {href: 'SubFlows', label: 'SubFlows'},
     {href: 'three', label: 'three'},
     {href: 'try-three', label: 'try-three'},

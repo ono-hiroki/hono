@@ -11,7 +11,7 @@ function downloadImage(dataUrl) {
 
 function DownloadButton() {
     const onClick = () => {
-        toPng(document.querySelector('.react-flow'), {
+        toPng(document.querySelector('.reactflow'), {
             filter: (node) => {
                 // わたしたちは、ミニマップとコントロールを画像に追加したくありません。
                 if (
