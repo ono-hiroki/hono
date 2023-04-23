@@ -1,3 +1,4 @@
+// UpdatableEdge.tsx
 import React, {useCallback} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, Controls, updateEdge, addEdge, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';

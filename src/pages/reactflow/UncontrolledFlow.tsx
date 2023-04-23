@@ -1,3 +1,4 @@
+// UncontrolledFlow.tsx
 import ReactFlow, {ReactFlowProvider, useReactFlow} from 'reactflow';
 import 'reactflow/dist/style.css';
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";

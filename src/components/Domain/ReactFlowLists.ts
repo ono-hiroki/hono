@@ -283,4 +283,47 @@ export const ReactFlowLists = [
         description: 'ZoomTransitions',
         tags: ['reactflow', 'react', 'typescript', 'nextjs'],
     },
+    {
+        href: `${pathgroup}/UncontrolledFlow`,
+        title: 'UncontrolledFlow \u2192',
+        imageSrc: '/myLists/img.png',
+        description: 'UncontrolledFlow',
+        tags: ['reactflow', 'react', 'typescript', 'nextjs'],
+    },
+    {
+        href: `${pathgroup}/UpdatableEdge`,
+        title: 'UpdatableEdge \u2192',
+        imageSrc: '/myLists/img.png',
+        description: 'UpdatableEdge',
+        tags: ['reactflow', 'react', 'typescript', 'nextjs'],
+    },
+    {
+        href: `${pathgroup}/UpdateNode`,
+        title: 'UpdateNode \u2192',
+        imageSrc: '/myLists/img.png',
+        description: 'UpdateNode',
+        tags: ['reactflow', 'react', 'typescript', 'nextjs'],
+    },
+    {
+        href: `${pathgroup}/useReactFlow`,
+        title: 'useReactFlow \u2192',
+        imageSrc: '/myLists/img.png',
+        description: 'useReactFlow',
+        tags: ['reactflow', 'react', 'typescript', 'nextjs'],
+    },
+    {
+        href: `${pathgroup}/UssingaStateManagementLibrary`,
+        title: 'UssingaStateManagementLibrary \u2192',
+        imageSrc: '/myLists/img.png',
+        description: 'UssingaStateManagementLibrary',
+        tags: ['reactflow', 'react', 'typescript', 'nextjs'],
+    },
+    {
+        href: `${pathgroup}/Validation`,
+        title: 'Validation \u2192',
+        imageSrc: '/myLists/img.png',
+        description: 'Validation',
+        tags: ['reactflow', 'react', 'typescript', 'nextjs'],
+    },
+
 ];
