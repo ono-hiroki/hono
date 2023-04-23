@@ -35,6 +35,13 @@ export const MyLists = [
         tags: ['three.js', 'vite', 'blender'],
     },
     {
+        href: 'https://github.com/ono-hiroki/practice_laravel3',
+        title: 'practice laravel \u2192',
+        imageSrc: '/myLists/img_15.png',
+        description: 'laravelでcrud機能の試し',
+        tags: ['Lravel', 'mysql'],
+    },
+    {
         href: '/reactflow',
         title: 'reactflowの試し \u2192',
         imageSrc: '/myLists/img_9.png',
