@@ -10,7 +10,7 @@ export const MyLists = [
         href: 'https://www.instagram.com/ono_8931/',
         title: 'instagram \u2192',
         imageSrc: '/myLists/img_7.png',
-        description: 'instagramのアカウント。',
+        description: 'instagramのアカウント。折り紙と水彩画',
         tags: ['instagram'],
     },
     {
@@ -42,16 +42,9 @@ export const MyLists = [
         tags: ['three.js', 'vite'],
     },
     {
-        href: 'https://hono-ono-hiroki.vercel.app/web-site01',
-        title: 'うごメモ \u2192',
-        imageSrc: '/myLists/img_8.png',
-        description: '動くWebデザイン アイディア帳のサンプルサイトをnext.jsで書き換えたもの',
-        tags: ['js', 'next.js'],
-    },
-    {
         href: '/ugomemo',
         title: '動くWebデザイン アイデア帳でサンプルを動かしてみた者たち \u2192',
-        imageSrc: '/myLists/img_3.png',
+        imageSrc: '/myLists/img_10.png',
         description: '動くWebデザイン アイデア帳のサンプルを動かしてみた者たち',
         tags: ['まとめ'],
     },
@@ -62,5 +55,13 @@ export const MyLists = [
         description: 'three.jsで試した者たち',
         tags: ['まとめ'],
     },
+    {
+        href: '/reactflow',
+        title: 'reactflowの試し \u2192',
+        imageSrc: '/myLists/img_9.png',
+        description: 'three.jsで試した者たち',
+        tags: ['まとめ'],
+    },
+
 
 ];

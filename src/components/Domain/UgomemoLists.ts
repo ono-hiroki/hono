@@ -36,6 +36,14 @@ export const UgomemoLists = [
         description: 'テキストがバラバラに表示される',
         tags: ['Next.js', 'React', 'TypeScript'],
     },
+    {
+        href: 'https://hono-ono-hiroki.vercel.app/web-site01',
+        title: '静的サイト途中 \u2192',
+        imageSrc: '/myLists/img_8.png',
+        description: '動くWebデザイン アイディア帳のサンプルサイトをnext.jsで書き換えたもの',
+        tags: ['js', 'next.js'],
+    },
+
     // {
     //     href: `/${path}/ugomemo8-2`,
     //     title: '左から右へテキストが流れます。uso \u2192',

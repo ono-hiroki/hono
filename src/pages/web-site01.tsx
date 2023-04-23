@@ -33,7 +33,7 @@ const WebSite01 = (props: any) => {
     return (
         <>
             <HeadTag/>
-            {/*<SplashTag isTimePassed={isTimePassed}/>*/}
+            <SplashTag isTimePassed={isTimePassed}/>
             <div id="wrapper">
                 <Header isSecondTimePassed={isSecondTimePassed}/>
                 {/*<div class="openbtn"><span></span><span></span><span></span></div>*/}
