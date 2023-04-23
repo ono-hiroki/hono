@@ -1,3 +1,4 @@
+// EdgeTypes.tsx
 import React, {useCallback} from 'react';
 import ReactFlow, {useNodesState, useEdgesState, addEdge, Controls, Background, Connection, Edge} from 'reactflow';
 import 'reactflow/dist/style.css';

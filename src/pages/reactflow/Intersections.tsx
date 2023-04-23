@@ -1,3 +1,4 @@
+// Intersections.tsx
 import React, {useCallback, MouseEvent} from 'react';
 import ReactFlow, {
     Background,

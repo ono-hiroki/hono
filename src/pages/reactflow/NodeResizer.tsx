@@ -1,3 +1,4 @@
+// NodeResizer.tsx
 import ReactFlow, {MiniMap, Background, BackgroundVariant, Controls, Edge} from 'reactflow';
 
 import 'reactflow/dist/style.css';

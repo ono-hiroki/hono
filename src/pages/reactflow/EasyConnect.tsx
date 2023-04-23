@@ -1,3 +1,4 @@
+// EasyConnect.tsx
 import React, {useCallback} from 'react';
 
 import ReactFlow, {addEdge, useNodesState, useEdgesState, MarkerType, Connection, Edge} from 'reactflow';

@@ -1,3 +1,4 @@
+// react-intersection-observer.tsx
 import Head from 'next/head';
 import {useRef} from "react";
 import {useInView} from "react-intersection-observer";

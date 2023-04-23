@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, {useEffect, useRef} from "react";
 import {ReactFlowLists} from "../Domain/ReactFlowLists";
 import {useGetWindowSize} from "../../hooks/useGetWindowSize";
+import { useRouter } from 'next/router';
 
 export function Card() {
     const ref = useRef(null);
@@ -14,6 +15,8 @@ export function Card() {
             setWidth(imageWidth);
         }
     }, [window.width]);
+    const router = useRouter();
+    console.log(router); // '/example/mycomponent'
 
     return (
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">

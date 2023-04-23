@@ -1,3 +1,4 @@
+// CustomNodes.tsx
 import { useCallback, useState } from 'react';
 import ReactFlow, { addEdge, applyEdgeChanges, applyNodeChanges, Connection, Edge,
     EdgeChange,
