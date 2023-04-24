@@ -13,7 +13,6 @@ const Index = (props: any) => {
                     <h1 className="text-6xl font-bold">
                         About Me
                     </h1>
-                    {/*左寄せ*/}
                     <div className="flex flex-col items-start justify-center text-left">
                         <p className="mt-3">
                             芝浦工業大学 数理科学科 4年<br/>
