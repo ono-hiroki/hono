@@ -97,6 +97,13 @@ export const MyLists = [
         description: 'sketchupで作ったオブジェクトをthreejsで表示させたもの',
         tags: ['three.js', 'vite', 'sketchup'],
     },
+    {
+        href: 'https://openprocessing.org/user/379585/?view=sketches&o=8',
+        title: 'openprocessing \u2192',
+        imageSrc: '/myLists/img_6.png',
+        description: 'openprocessingのアカウント。p5.jsで作ったもの',
+        tags: ['openprocessing', 'p5.js'],
+    }
 
 
 ];
