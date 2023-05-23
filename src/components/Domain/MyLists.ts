@@ -77,7 +77,7 @@ export const MyLists = [
         tags: ['three.js', 'vite'],
     },
     {
-        href: '/ugomemo',
+        href: '/ugokuweb',
         title: '動くWebデザイン アイデア帳でサンプルを動かしてみた者たち \u2192',
         imageSrc: '/myLists/img_10.png',
         description: '動くWebデザイン アイデア帳のサンプルを動かしてみた者たち',

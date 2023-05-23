@@ -15,7 +15,7 @@ const products = [
     {name: 'index', description: '一覧', href: '/', icon: ChartPieIcon},
     {name: 'three', description: 'threejs使ったものの一覧', href: '/threejs', icon: CursorArrowRaysIcon},
     {name: 'reactflow', description: 'reactflowを使ったものの一覧', href: '/reactflow', icon: FingerPrintIcon},
-    {name: 'ugomemo', description: 'うごくメモ帳デザイン帳の本を動かして確認したもの一覧', href: '/ugomemo', icon: SquaresPlusIcon},
+    {name: 'ugomemo', description: 'うごくメモ帳デザイン帳の本を動かして確認したもの一覧', href: '/ugokuweb', icon: SquaresPlusIcon},
 ]
 
 export const TailWindHeader = () => {
