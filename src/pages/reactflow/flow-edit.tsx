@@ -1,4 +1,4 @@
-// flow-edit.tsx
+// flow-edit.jsx
 import {useCallback, useRef} from 'react';
 import ReactFlow, {
     Controls,
