@@ -7,7 +7,7 @@ export const MyLists = [
         tags: ['github'],
     },
     {
-        href: 'https://www.instagram.com/ono_8931/',
+        href: 'https://www.instagram.com/hiroki.ono8944/',
         title: 'instagram \u2192',
         imageSrc: '/myLists/img_7.png',
         description: 'instagramのアカウント。折り紙と水彩画',
