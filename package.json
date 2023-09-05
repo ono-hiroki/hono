@@ -28,6 +28,7 @@
     "html-to-image": "^1.11.11",
     "isomorphic-unfetch": "^4.0.2",
     "next": "13.0.3",
+    "practice-create-npm-package": "^0.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-flow-renderer": "^10.3.17",
