@@ -17,8 +17,8 @@ export function useLayerProvider(
   const [groupConfigs, setGroupConfigs] = useState<GroupConfig[]>([]);
   // LayerStateHookResult
   const getLayer = (name: string): Layer => {
-    if (!layers.some((layer) => layer.name === name)) 
-      throw new Error(`layer ${name} is not found`);
+    if (!layers.some((layer) => layer.name === name))
+      throw new Error("layer name is not found");
     return layers.find((layer) => layer.name === name)!;
   };
   const getActiveLayers = (): Layers => {
@@ -108,13 +108,34 @@ export function useLayerProvider(
     if (!layers.some((layer) => layer.name === name))
       throw new Error("layer name is not found");
 
-    const unresolvedLayers = layers.map((layer) => {
+    let unresolvedLayers = layers.map((layer) => {
       if (layer.name === name) {
         return { ...layer, isActive: true };
       } else {
         return layer;
       }
     });
+
+    // もしactiveLayerのlayerが重複を許可していない場合、他のレイヤーを非活性化する
+    const group = layers.find((layer) => layer.name === name)?.group;
+    const groupConfig = groupConfigs.find(
+      (groupConfig) => groupConfig.name === group,
+    );
+    const isDuplicate = groupConfig?.isDuplicate ?? true; // グループ設定がない場合は重複を許可する
+
+    if (!isDuplicate) {
+      unresolvedLayers = unresolvedLayers.map((layer) => {
+        if (layer.group === group && layer.name !== name) {
+          return {
+            ...layer,
+            isActive: false,
+          };
+        } else {
+          return layer;
+        }
+      });
+    }
+
     const resolvedLayers = applyDependenciesToAllLayers(unresolvedLayers);
     setLayers(resolvedLayers);
   };

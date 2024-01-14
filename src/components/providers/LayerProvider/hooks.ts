@@ -7,8 +7,8 @@ import {
   LayerStateHookResult,
 } from "./LayerContext";
 
-export const useLayerState = (): LayerStateHookResult | null =>
+export const useLayerState = (): LayerStateHookResult =>
   useContext(LayerStateContext);
 
-export const useLayerAction = (): LayerActionHookResult | null =>
+export const useLayerAction = (): LayerActionHookResult =>
   useContext(LayerActionContext);

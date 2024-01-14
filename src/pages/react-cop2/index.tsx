@@ -1,40 +1,42 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {Layer, LayerProvider} from "../../components";
-import {useLayerProvider} from "../../components/providers/LayerProvider/useLayerProvider";
-// import LayerSwitchingButton from "../../components/Calculator/LayerSwitchingButton";
-import LayerSwitchingButton from "../../components/cop_calculator/LayerSwitchingButton";
+import React, {useEffect} from 'react';
+import {Layer, LayerProvider, useLayerState} from "../../components";
+import {useLayerAction} from "../../components";
 
 const integerLayer = {
     name: "integer",
-    isActive: true,
+    isActive: false,
     group: "default",
     params: null,
 };
 const floatLayer = {
     name: "float",
-    isActive: false,
+    isActive: true,
     group: "default",
     params: null,
 };
 const Index = (props: any) => {
-    const layerProvider = useLayerProvider([integerLayer, floatLayer]);
+    const {activeLayer, inactiveLayer, addLayer, setGroupConfig} = useLayerAction();
+    const {getLayer, layers} = useLayerState();
+
     useEffect(() => {
-        layerProvider.setGroupConfig("default", {name: "default", isDuplicate: false});
-        // console.log(layerProvider.layers)
+        setGroupConfig("default", {name: "default", isDuplicate: true});
+        addLayer([integerLayer, floatLayer]);
+        console.log(activeLayer)
+        console.log('layers')
+        console.log(layers)
+        console.log('getLayer("float")')
+        console.log(getLayer("float"))
     }, []);
 
     const onClickFloat = () => {
-        layerProvider.activeLayer("float");
-        layerProvider.activeLayer("integer");
-        // layerProvider.inactiveLayer("integer");
-        console.log(layerProvider.layers)
-
+        activeLayer("float");
+        inactiveLayer("integer");
     };
-
     const onClickInteger = () => {
-        layerProvider.activeLayer("integer");
-        layerProvider.inactiveLayer("float");
+        activeLayer("integer");
+        inactiveLayer("float");
     };
+
     return (
         <LayerProvider>
             <div>
@@ -43,11 +45,12 @@ const Index = (props: any) => {
                 {/*<CalculationPanel/>*/}
                 {/*<br/>*/}
                 <div>
-                    <Layer condition={layerProvider.getLayer("float").isActive}>
+                    <Layer condition={getLayer("float").isActive}>
                         <button disabled className={"bg-gray-500 m-2"}>Float</button>
                         <button onClick={onClickInteger}>Integer</button>
                     </Layer>
-                    <Layer condition={layerProvider.getLayer("integer").isActive}>
+
+                    <Layer condition={getLayer("integer").isActive}>
                         <button onClick={onClickFloat}>Float</button>
                         <button disabled className={"bg-gray-500 m-2"}>Integer</button>
                     </Layer>
