@@ -3,7 +3,8 @@ import '../styles/sass/top.scss'
 import type {AppProps} from 'next/app'
 import {useCounter} from "../hooks/useCounter";
 import {useInputArray} from "../hooks/useInputArray";
-import {LayerProvider} from "hono-my-npm-package";
+import {LayerProvider} from "../components";
+
 
 
 export default function MyApp({Component, pageProps}: AppProps) {

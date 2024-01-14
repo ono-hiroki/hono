@@ -19,44 +19,44 @@ const Index = (props: any) => {
     const {getLayer, layers} = useLayerState();
 
     useEffect(() => {
-        setGroupConfig("default", {name: "default", isDuplicate: true});
+        setGroupConfig("default", {
+            name: "default",
+            isDuplicate: false,
+        });
         addLayer([integerLayer, floatLayer]);
-        console.log(activeLayer)
-        console.log('layers')
-        console.log(layers)
-        console.log('getLayer("float")')
-        console.log(getLayer("float"))
     }, []);
+
+    useEffect(() => {
+        console.log(layers);
+    }, [layers]);
 
     const onClickFloat = () => {
         activeLayer("float");
-        inactiveLayer("integer");
     };
     const onClickInteger = () => {
         activeLayer("integer");
-        inactiveLayer("float");
     };
 
     return (
-        <LayerProvider>
+
+        <div>
+            <br/>
+            aaa
+            {/*<CalculationPanel/>*/}
+            {/*<br/>*/}
             <div>
-                <br/>
+                <Layer condition={true}>
+                    <button disabled className={"bg-gray-500 m-2"}>Float</button>
+                    <button onClick={onClickInteger}>Integer</button>
+                </Layer>
 
-                {/*<CalculationPanel/>*/}
-                {/*<br/>*/}
-                <div>
-                    <Layer condition={getLayer("float").isActive}>
-                        <button disabled className={"bg-gray-500 m-2"}>Float</button>
-                        <button onClick={onClickInteger}>Integer</button>
-                    </Layer>
-
-                    <Layer condition={getLayer("integer").isActive}>
-                        <button onClick={onClickFloat}>Float</button>
-                        <button disabled className={"bg-gray-500 m-2"}>Integer</button>
-                    </Layer>
-                </div>
+                <Layer condition={true}>
+                    <button onClick={onClickFloat}>Float</button>
+                    <button disabled className={"bg-gray-500 m-2"}>Integer</button>
+                </Layer>
             </div>
-        </LayerProvider>
+        </div>
+
     );
 }
 
