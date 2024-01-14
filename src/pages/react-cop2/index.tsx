@@ -15,7 +15,7 @@ const floatLayer = {
     params: null,
 };
 const Index = (props: any) => {
-    const {activeLayer, inactiveLayer, addLayer, setGroupConfig} = useLayerAction();
+    const {activeLayer, addLayer, setGroupConfig} = useLayerAction();
     const {getLayer, layers} = useLayerState();
 
     useEffect(() => {
@@ -31,10 +31,10 @@ const Index = (props: any) => {
     }, [layers]);
 
     const onClickFloat = () => {
-        activeLayer("float");
+        activeLayer("integer");
     };
     const onClickInteger = () => {
-        activeLayer("integer");
+        activeLayer("float");
     };
 
     return (
@@ -45,14 +45,12 @@ const Index = (props: any) => {
             {/*<CalculationPanel/>*/}
             {/*<br/>*/}
             <div>
-                <Layer condition={true}>
-                    <button disabled className={"bg-gray-500 m-2"}>Float</button>
+                <Layer condition={getLayer("integer")?.isActive}>
                     <button onClick={onClickInteger}>Integer</button>
                 </Layer>
 
-                <Layer condition={true}>
+                <Layer condition={getLayer("float")?.isActive}>
                     <button onClick={onClickFloat}>Float</button>
-                    <button disabled className={"bg-gray-500 m-2"}>Integer</button>
                 </Layer>
             </div>
         </div>

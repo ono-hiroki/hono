@@ -12,13 +12,11 @@ import {
 
 export function useLayerProvider(
   defaultLayers?: Layers,
-): LayerStateHookResult & LayerActionHookResult {
+): LayerStateHookResult & LayerActionHookResult {useLayerProvider
   const [layers, setLayers] = useState<Layers>(defaultLayers ?? ([] as Layers));
   const [groupConfigs, setGroupConfigs] = useState<GroupConfig[]>([]);
   // LayerStateHookResult
   const getLayer = (name: string): Layer => {
-    if (!layers.some((layer) => layer.name === name))
-      throw new Error("layer name is not found");
     return layers.find((layer) => layer.name === name)!;
   };
   const getActiveLayers = (): Layers => {
